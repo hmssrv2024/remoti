@@ -509,6 +509,99 @@
       color:var(--ink-600);
       line-height:1.7;
     }
+
+    /* JOBS */
+    .jobs-section{
+      background:var(--ink-50);
+    }
+
+    .jobs-category{
+      margin-bottom:56px;
+    }
+
+    .jobs-category:last-of-type{
+      margin-bottom:0;
+    }
+
+    .jobs-category-title{
+      font-size:24px;
+      font-weight:700;
+      color:var(--ink-800);
+      margin-bottom:24px;
+    }
+
+    .jobs-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+    }
+
+    .job-card{
+      background:var(--white);
+      border:1px solid var(--ink-200);
+      border-radius:16px;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      transition:var(--transition);
+      box-shadow:var(--shadow-sm);
+    }
+
+    .job-card:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-lg);
+      border-color:var(--brand-light);
+    }
+
+    .job-tag{
+      align-self:flex-start;
+      background:rgba(10,79,214,.08);
+      color:var(--brand);
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:0.03em;
+      text-transform:uppercase;
+    }
+
+    .job-title{
+      font-size:20px;
+      font-weight:700;
+      color:var(--ink-900);
+      line-height:1.3;
+    }
+
+    .job-desc{
+      font-size:15px;
+      color:var(--ink-600);
+      line-height:1.6;
+      flex:1;
+    }
+
+    .job-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      font-size:14px;
+      color:var(--ink-600);
+      font-weight:600;
+    }
+
+    .job-rate{
+      color:var(--brand);
+      font-weight:700;
+    }
+
+    .job-actions{
+      margin-top:auto;
+    }
+
+    .job-actions .btn{
+      width:100%;
+      justify-content:center;
+    }
     
     /* PRICING */
     .pricing-grid{
@@ -1032,6 +1125,7 @@
         </div>
         <div class="nav-links">
           <a href="#servicios">Servicios</a>
+          <a href="#vacantes">Vacantes</a>
           <a href="#planes">Planes</a>
           <a href="#contacto">Contacto</a>
           <button class="btn btn-primary" onclick="openWizard()">Comenzar</button>
@@ -1166,6 +1260,301 @@
           </div>
           <h3 class="service-title">Administración</h3>
           <p class="service-desc">Gestión documental, data entry, facturación, seguimiento de pagos y procesos administrativos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOB OFFERS -->
+  <section class="section section-alt jobs-section" id="vacantes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Vacantes</span>
+        <h2 class="section-title">Ofertas de trabajo remoto a 25 USD/h</h2>
+        <p class="section-desc">Únete a nuestro equipo de asistentes virtuales desde casa. Todas las posiciones son 100% remotas, con horarios flexibles y soporte constante del equipo de Remoti.</p>
+      </div>
+
+      <div class="jobs-category">
+        <h3 class="jobs-category-title">Atención y comunicación</h3>
+        <div class="jobs-grid">
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Gestión de correos electrónicos</h4>
+            <p class="job-desc">Organiza bandejas de entrada, responde mensajes básicos y filtra spam para garantizar tiempos de respuesta eficientes.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Horario flexible</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Atención al cliente por chat</h4>
+            <p class="job-desc">Responde consultas en tiempo real mediante WhatsApp, Messenger y webchat, brindando soluciones claras y oportunas.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Chat en vivo</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Soporte por correo electrónico</h4>
+            <p class="job-desc">Gestiona tickets y preguntas frecuentes, documenta respuestas y deriva casos complejos a los equipos correspondientes.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Turnos rotativos</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Agendar citas y reuniones</h4>
+            <p class="job-desc">Coordina agendas en Google Calendar u Outlook, envía invitaciones y confirma la asistencia de clientes y equipos.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Soporte a ejecutivos</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Gestión de llamadas entrantes</h4>
+            <p class="job-desc">Recibe y filtra llamadas mediante aplicaciones VoIP o Google Voice, registrando solicitudes y derivaciones pertinentes.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Atención telefónica</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jobs-category">
+        <h3 class="jobs-category-title">Organización y tareas administrativas</h3>
+        <div class="jobs-grid">
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Creación y actualización de hojas de cálculo</h4>
+            <p class="job-desc">Registra y actualiza datos en Excel o Google Sheets, manteniendo reportes precisos y organizados para nuestros clientes.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Excel / Google Sheets</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Transcripción de audios o reuniones</h4>
+            <p class="job-desc">Convierte grabaciones en texto con excelente ortografía, asegurando entregas puntuales y archivos bien estructurados.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Entrega diaria</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Elaboración de reportes simples</h4>
+            <p class="job-desc">Produce informes semanales con información básica y visualizaciones sencillas para la toma de decisiones.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Reportes semanales</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Organización de documentos en la nube</h4>
+            <p class="job-desc">Clasifica y mantiene archivos en Google Drive o Dropbox, estableciendo nomenclaturas y permisos adecuados.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Google Drive</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Redacción de cartas o documentos básicos</h4>
+            <p class="job-desc">Redacta cartas, contratos simples y comunicados utilizando plantillas y asegurando coherencia corporativa.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Word / Google Docs</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jobs-category">
+        <h3 class="jobs-category-title">Redes sociales y contenido</h3>
+        <div class="jobs-grid">
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Programación de publicaciones en redes</h4>
+            <p class="job-desc">Planifica y programa contenido en herramientas como Buffer o Hootsuite, manteniendo el calendario editorial actualizado.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Buffer / Hootsuite</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Moderación de comentarios</h4>
+            <p class="job-desc">Supervisa comunidades digitales, responde dudas y filtra comentarios siguiendo las guías de marca.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Community management</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Diseño sencillo en Canva</h4>
+            <p class="job-desc">Crea piezas visuales con plantillas predefinidas, adaptando formatos para redes sociales y newsletters.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Canva</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Búsqueda de imágenes y recursos libres</h4>
+            <p class="job-desc">Selecciona material gráfico de bancos gratuitos asegurando licencias adecuadas y calidad visual.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Recursos creativos</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Corrección ortográfica básica</h4>
+            <p class="job-desc">Revisa textos antes de su publicación, garantizando ortografía impecable y coherencia de estilo.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Calidad editorial</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jobs-category">
+        <h3 class="jobs-category-title">Soporte a la gestión empresarial</h3>
+        <div class="jobs-grid">
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Ingreso de datos en sistemas CRM</h4>
+            <p class="job-desc">Actualiza fichas de clientes en CRMs líderes, asegurando información confiable para los equipos comerciales.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Gestión de datos</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Investigación en internet</h4>
+            <p class="job-desc">Recopila información de proveedores, precios y tendencias, entregando resúmenes accionables al equipo.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Research online</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Gestión de pedidos online</h4>
+            <p class="job-desc">Supervisa órdenes en plataformas ecommerce, confirma pagos y coordina envíos con clientes y logística.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Ecommerce</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Soporte en facturación sencilla</h4>
+            <p class="job-desc">Prepara facturas con plantillas en Word o Excel, registra pagos y mantiene ordenada la documentación.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Facturación</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
+          <div class="job-card">
+            <span class="job-tag">Trabajo remoto</span>
+            <h4 class="job-title">Envío de recordatorios</h4>
+            <p class="job-desc">Notifica a clientes y equipos sobre pagos, reuniones o entregas, utilizando plantillas y herramientas automáticas.</p>
+            <div class="job-meta">
+              <span class="job-rate">25 USD/h</span>
+              <span>Desde casa</span>
+              <span>Comunicación proactiva</span>
+            </div>
+            <div class="job-actions">
+              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
