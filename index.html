@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remoti — Soluciones Empresariales de Asistencia Virtual | España</title>
+  <meta name="description" content="Remoti ofrece servicios profesionales de asistencia virtual para empresas en España. Talento verificado, procesos optimizados y resultados medibles.">
+  <meta name="theme-color" content="#0a4fd6">
+  <style>
+    :root{
+      --ink-900:#0a0e1a;
+      --ink-800:#0f172a;
+      --ink-700:#1e293b;
+      --ink-600:#334155;
+      --ink-400:#64748b;
+      --ink-200:#e2e8f0;
+      --ink-100:#f1f5f9;
+      --ink-50:#f8fafc;
+      --brand:#0a4fd6;
+      --brand-light:#3b82f6;
+      --accent:#06b6d4;
+      --success:#10b981;
+      --white:#ffffff;
+      --gradient-primary:linear-gradient(135deg, #0a4fd6 0%, #3b82f6 100%);
+      --gradient-hero:linear-gradient(160deg, #0a0e1a 0%, #0f172a 50%, #1e293b 100%);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.05);
+      --shadow-md:0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
+      --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+      --shadow-xl:0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+      --radius:12px;
+      --transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    
+    html{scroll-behavior:smooth;font-size:16px}
+    
+    body{
+      font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      color:var(--ink-800);
+      background:var(--white);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    
+    a{color:var(--brand);text-decoration:none;transition:var(--transition)}
+    a:hover{color:var(--brand-light)}
+    
+    .container{width:100%;max-width:1280px;margin:0 auto;padding:0 24px}
+    
+    /* NAVIGATION */
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--ink-200);
+      box-shadow:var(--shadow-sm);
+    }
+    
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:72px;
+    }
+    
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      font-size:20px;
+      color:var(--ink-900);
+      letter-spacing:-0.02em;
+    }
+    
+    .logo-mark{
+      width:40px;
+      height:40px;
+      border-radius:10px;
+      background:var(--gradient-primary);
+      box-shadow:0 4px 12px rgba(10,79,214,.3);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--white);
+      font-weight:800;
+      font-size:18px;
+    }
+    
+    .nav-links{
+      display:none;
+      gap:32px;
+      align-items:center;
+    }
+    
+    .nav-links a{
+      color:var(--ink-600);
+      font-weight:500;
+      font-size:15px;
+      transition:var(--transition);
+    }
+    
+    .nav-links a:hover{color:var(--ink-900)}
+    
+    .btn{
+      appearance:none;
+      border:0;
+      border-radius:var(--radius);
+      padding:12px 24px;
+      font-weight:600;
+      font-size:15px;
+      cursor:pointer;
+      transition:var(--transition);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+      line-height:1;
+    }
+    
+    .btn-primary{
+      background:var(--gradient-primary);
+      color:var(--white);
+      box-shadow:0 4px 12px rgba(10,79,214,.25);
+    }
+    
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 20px rgba(10,79,214,.35);
+    }
+    
+    .btn-secondary{
+      background:var(--white);
+      color:var(--ink-800);
+      border:2px solid var(--ink-200);
+    }
+    
+    .btn-secondary:hover{
+      border-color:var(--ink-400);
+      background:var(--ink-50);
+    }
+    
+    .btn-ghost{
+      background:transparent;
+      color:var(--white);
+      border:2px solid rgba(255,255,255,.2);
+    }
+    
+    .btn-ghost:hover{
+      background:rgba(255,255,255,.1);
+      border-color:rgba(255,255,255,.4);
+    }
+    
+    /* HERO */
+    .hero{
+      background:var(--gradient-hero);
+      position:relative;
+      overflow:hidden;
+      padding:120px 0 80px;
+    }
+    
+    .hero::before{
+      content:'';
+      position:absolute;
+      top:0;
+      right:0;
+      width:60%;
+      height:100%;
+      background:radial-gradient(ellipse at top right, rgba(59,130,246,.15) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:48px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    
+    .hero-content h1{
+      font-size:clamp(36px, 5vw, 56px);
+      font-weight:800;
+      line-height:1.1;
+      color:var(--white);
+      margin-bottom:24px;
+      letter-spacing:-0.03em;
+    }
+    
+    .hero-content p{
+      font-size:clamp(16px, 2vw, 20px);
+      color:rgba(255,255,255,.8);
+      margin-bottom:32px;
+      max-width:580px;
+      line-height:1.7;
+    }
+    
+    .hero-cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-bottom:48px;
+    }
+    
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:24px;
+      margin-top:48px;
+    }
+    
+    .stat-item{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:var(--radius);
+      padding:20px;
+      backdrop-filter:blur(8px);
+    }
+    
+    .stat-value{
+      font-size:32px;
+      font-weight:800;
+      color:var(--white);
+      display:block;
+      margin-bottom:4px;
+    }
+    
+    .stat-label{
+      font-size:14px;
+      color:rgba(255,255,255,.7);
+      font-weight:500;
+    }
+    
+    .hero-visual{
+      position:relative;
+      display:none;
+    }
+    
+    .visual-card{
+      background:var(--white);
+      border-radius:20px;
+      padding:32px;
+      box-shadow:var(--shadow-xl);
+      animation:float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-20px)}
+    }
+    
+    /* TRUST BAR */
+    .trust-bar{
+      background:var(--white);
+      border-bottom:1px solid var(--ink-200);
+      padding:32px 0;
+    }
+    
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:32px;
+      text-align:center;
+    }
+    
+    .trust-item{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+    }
+    
+    .trust-icon{
+      width:48px;
+      height:48px;
+      background:var(--ink-100);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:24px;
+      margin-bottom:4px;
+    }
+    
+    .trust-label{
+      font-size:14px;
+      font-weight:600;
+      color:var(--ink-800);
+    }
+    
+    /* SECTIONS */
+    .section{
+      padding:96px 0;
+    }
+    
+    .section-alt{
+      background:var(--ink-50);
+    }
+    
+    .section-header{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 64px;
+    }
+    
+    .section-label{
+      display:inline-block;
+      background:var(--ink-100);
+      color:var(--brand);
+      padding:8px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:16px;
+      letter-spacing:0.03em;
+    }
+    
+    .section-title{
+      font-size:clamp(32px, 4vw, 44px);
+      font-weight:800;
+      color:var(--ink-900);
+      margin-bottom:16px;
+      letter-spacing:-0.02em;
+      line-height:1.2;
+    }
+    
+    .section-desc{
+      font-size:18px;
+      color:var(--ink-600);
+      line-height:1.7;
+    }
+    
+    /* SERVICES GRID */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:32px;
+    }
+    
+    .service-card{
+      background:var(--white);
+      border:1px solid var(--ink-200);
+      border-radius:16px;
+      padding:32px;
+      transition:var(--transition);
+    }
+    
+    .service-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-xl);
+      border-color:var(--brand-light);
+    }
+    
+    .service-icon{
+      width:56px;
+      height:56px;
+      background:var(--gradient-primary);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:20px;
+      box-shadow:0 8px 16px rgba(10,79,214,.2);
+    }
+    
+    .service-icon svg{
+      width:28px;
+      height:28px;
+      color:var(--white);
+    }
+    
+    .service-title{
+      font-size:20px;
+      font-weight:700;
+      color:var(--ink-900);
+      margin-bottom:12px;
+    }
+    
+    .service-desc{
+      font-size:15px;
+      color:var(--ink-600);
+      line-height:1.7;
+    }
+    
+    /* PRICING */
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:32px;
+      margin-top:48px;
+    }
+    
+    .pricing-card{
+      background:var(--white);
+      border:2px solid var(--ink-200);
+      border-radius:20px;
+      padding:40px;
+      position:relative;
+      transition:var(--transition);
+    }
+    
+    .pricing-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-xl);
+    }
+    
+    .pricing-card.featured{
+      border-color:var(--brand);
+      box-shadow:0 0 0 4px rgba(10,79,214,.1);
+    }
+    
+    .pricing-badge{
+      position:absolute;
+      top:-12px;
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--gradient-primary);
+      color:var(--white);
+      padding:6px 20px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.03em;
+    }
+    
+    .pricing-name{
+      font-size:16px;
+      font-weight:700;
+      color:var(--brand);
+      margin-bottom:12px;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+    }
+    
+    .pricing-title{
+      font-size:28px;
+      font-weight:800;
+      color:var(--ink-900);
+      margin-bottom:24px;
+    }
+    
+    .pricing-features{
+      list-style:none;
+      margin:32px 0;
+    }
+    
+    .pricing-features li{
+      padding:12px 0;
+      display:flex;
+      gap:12px;
+      font-size:15px;
+      color:var(--ink-700);
+      border-bottom:1px solid var(--ink-100);
+    }
+    
+    .pricing-features li:last-child{
+      border:0;
+    }
+    
+    .pricing-features li::before{
+      content:'✓';
+      color:var(--success);
+      font-weight:800;
+      flex-shrink:0;
+    }
+    
+    /* CONTACT SECTION */
+    .contact-section{
+      background:var(--gradient-hero);
+      color:var(--white);
+      padding:96px 0;
+    }
+    
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:48px;
+    }
+    
+    .contact-info h2{
+      font-size:clamp(32px, 4vw, 44px);
+      font-weight:800;
+      margin-bottom:24px;
+      letter-spacing:-0.02em;
+    }
+    
+    .contact-info p{
+      font-size:18px;
+      color:rgba(255,255,255,.8);
+      margin-bottom:32px;
+      line-height:1.7;
+    }
+    
+    .contact-methods{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+    
+    .contact-method{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:var(--radius);
+      padding:24px;
+      backdrop-filter:blur(8px);
+      transition:var(--transition);
+    }
+    
+    .contact-method:hover{
+      background:rgba(255,255,255,.12);
+      border-color:rgba(255,255,255,.3);
+    }
+    
+    .contact-method-title{
+      font-size:14px;
+      font-weight:600;
+      color:rgba(255,255,255,.7);
+      margin-bottom:8px;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+    }
+    
+    .contact-method-value{
+      font-size:18px;
+      font-weight:700;
+      color:var(--white);
+    }
+    
+    .contact-method-value a{
+      color:var(--white);
+    }
+    
+    /* WIZARD MODAL */
+    .wizard-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(10,14,26,.8);
+      backdrop-filter:blur(8px);
+      z-index:200;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      opacity:0;
+      transition:opacity .3s;
+    }
+    
+    .wizard-overlay.active{
+      display:flex;
+      opacity:1;
+    }
+    
+    .wizard-modal{
+      background:var(--white);
+      border-radius:24px;
+      max-width:560px;
+      width:100%;
+      max-height:90vh;
+      overflow-y:auto;
+      box-shadow:var(--shadow-xl);
+      transform:scale(0.95);
+      transition:transform .3s;
+    }
+    
+    .wizard-overlay.active .wizard-modal{
+      transform:scale(1);
+    }
+    
+    .wizard-header{
+      padding:32px 32px 24px;
+      border-bottom:1px solid var(--ink-200);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    
+    .wizard-progress{
+      display:flex;
+      gap:8px;
+    }
+    
+    .progress-dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:var(--ink-200);
+      transition:var(--transition);
+    }
+    
+    .progress-dot.active{
+      background:var(--brand);
+      width:32px;
+    }
+    
+    .wizard-close{
+      background:transparent;
+      border:0;
+      cursor:pointer;
+      color:var(--ink-400);
+      font-size:24px;
+      line-height:1;
+      padding:4px;
+      transition:var(--transition);
+    }
+    
+    .wizard-close:hover{
+      color:var(--ink-900);
+    }
+    
+    .wizard-title{
+      font-size:24px;
+      font-weight:800;
+      color:var(--ink-900);
+      margin-top:16px;
+    }
+    
+    .wizard-body{
+      padding:32px;
+    }
+    
+    .form-group{
+      margin-bottom:24px;
+    }
+    
+    .form-label{
+      display:block;
+      font-size:14px;
+      font-weight:600;
+      color:var(--ink-800);
+      margin-bottom:8px;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea{
+      width:100%;
+      padding:12px 16px;
+      border:2px solid var(--ink-200);
+      border-radius:var(--radius);
+      font-size:15px;
+      color:var(--ink-800);
+      transition:var(--transition);
+      font-family:inherit;
+    }
+    
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus{
+      outline:0;
+      border-color:var(--brand);
+      box-shadow:0 0 0 4px rgba(10,79,214,.1);
+    }
+    
+    .form-textarea{
+      resize:vertical;
+      min-height:120px;
+    }
+    
+    .checkbox-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:12px;
+    }
+    
+    .checkbox-option{
+      position:relative;
+    }
+    
+    .checkbox-option input{
+      position:absolute;
+      opacity:0;
+    }
+    
+    .checkbox-option label{
+      display:block;
+      padding:16px;
+      border:2px solid var(--ink-200);
+      border-radius:var(--radius);
+      cursor:pointer;
+      transition:var(--transition);
+      font-size:14px;
+      font-weight:500;
+    }
+    
+    .checkbox-option input:checked + label{
+      border-color:var(--brand);
+      background:rgba(10,79,214,.05);
+      color:var(--brand);
+    }
+    
+    .radio-grid{
+      display:grid;
+      gap:12px;
+    }
+    
+    .radio-option{
+      position:relative;
+    }
+    
+    .radio-option input{
+      position:absolute;
+      opacity:0;
+    }
+    
+    .radio-option label{
+      display:block;
+      padding:20px;
+      border:2px solid var(--ink-200);
+      border-radius:var(--radius);
+      cursor:pointer;
+      transition:var(--transition);
+    }
+    
+    .radio-option input:checked + label{
+      border-color:var(--brand);
+      background:rgba(10,79,214,.05);
+    }
+    
+    .radio-title{
+      font-size:16px;
+      font-weight:700;
+      color:var(--ink-900);
+      margin-bottom:4px;
+    }
+    
+    .radio-desc{
+      font-size:14px;
+      color:var(--ink-600);
+    }
+    
+    .summary-grid{
+      background:var(--ink-50);
+      border-radius:var(--radius);
+      padding:24px;
+      margin-bottom:24px;
+    }
+    
+    .summary-row{
+      display:flex;
+      justify-content:space-between;
+      padding:12px 0;
+      border-bottom:1px solid var(--ink-200);
+      font-size:14px;
+    }
+    
+    .summary-row:last-child{
+      border:0;
+    }
+    
+    .summary-label{
+      color:var(--ink-600);
+      font-weight:500;
+    }
+    
+    .summary-value{
+      color:var(--ink-900);
+      font-weight:600;
+    }
+    
+    .wizard-actions{
+      display:flex;
+      gap:12px;
+      padding:24px 32px 32px;
+      border-top:1px solid var(--ink-200);
+    }
+    
+    .wizard-actions .btn{
+      flex:1;
+    }
+    
+    /* FOOTER */
+    .footer{
+      background:var(--ink-900);
+      color:rgba(255,255,255,.7);
+      padding:64px 0 32px;
+    }
+    
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:48px;
+      margin-bottom:48px;
+    }
+    
+    .footer-brand{
+      max-width:280px;
+    }
+    
+    .footer-logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:16px;
+    }
+    
+    .footer-logo-mark{
+      width:36px;
+      height:36px;
+      background:var(--gradient-primary);
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--white);
+      font-weight:800;
+    }
+    
+    .footer-logo-text{
+      font-size:18px;
+      font-weight:700;
+      color:var(--white);
+    }
+    
+    .footer-desc{
+      font-size:14px;
+      line-height:1.7;
+      color:rgba(255,255,255,.6);
+    }
+    
+    .footer-title{
+      font-size:14px;
+      font-weight:700;
+      color:var(--white);
+      margin-bottom:16px;
+      letter-spacing:0.05em;
+      text-transform:uppercase;
+    }
+    
+    .footer-links{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    
+    .footer-links a{
+      color:rgba(255,255,255,.6);
+      font-size:14px;
+      transition:var(--transition);
+    }
+    
+    .footer-links a:hover{
+      color:var(--white);
+    }
+    
+    .footer-bottom{
+      padding-top:32px;
+      border-top:1px solid rgba(255,255,255,.1);
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:16px;
+      font-size:14px;
+    }
+    
+    .footer-bottom a{
+      color:rgba(255,255,255,.6);
+    }
+    
+    /* RESPONSIVE */
+    @media(min-width:768px){
+      .nav-links{
+        display:flex;
+      }
+      
+      .hero-grid{
+        grid-template-columns:1.2fr 1fr;
+      }
+      
+      .hero-visual{
+        display:block;
+      }
+      
+      .contact-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+    
+    @media(max-width:767px){
+      .hero{
+        padding:80px 0 60px;
+      }
+      
+      .section{
+        padding:64px 0;
+      }
+      
+      .pricing-grid,
+      .services-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="logo">
+          <div class="logo-mark">R</div>
+          <span>Remoti</span>
+        </div>
+        <div class="nav-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#planes">Planes</a>
+          <a href="#contacto">Contacto</a>
+          <button class="btn btn-primary" onclick="openWizard()">Comenzar</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>Soluciones empresariales de asistencia virtual</h1>
+          <p>Optimice sus operaciones con profesionales verificados. Servicio integral en español e inglés, procesos documentados y resultados medibles.</p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" onclick="openWizard()">Solicitar consultoría</button>
+            <a href="#planes" class="btn btn-ghost">Explorar planes</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-value">48h</span>
+              <span class="stat-label">Onboarding</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">98%</span>
+              <span class="stat-label">Satisfacción</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">24/7</span>
+              <span class="stat-label">Cobertura</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-card">
+            <svg viewBox="0 0 400 300" style="width:100%;height:auto">
+              <rect width="400" height="300" fill="#f8fafc" rx="12"/>
+              <rect x="20" y="20" width="360" height="40" fill="#0a4fd6" opacity="0.1" rx="8"/>
+              <rect x="20" y="80" width="170" height="80" fill="#e2e8f0" rx="8"/>
+              <rect x="210" y="80" width="170" height="80" fill="#e2e8f0" rx="8"/>
+              <rect x="20" y="180" width="360" height="80" fill="#f1f5f9" rx="8"/>
+              <circle cx="60" cy="220" r="20" fill="#0a4fd6" opacity="0.2"/>
+              <rect x="90" y="205" width="200" height="8" fill="#cbd5e1" rx="4"/>
+              <rect x="90" y="225" width="150" height="8" fill="#cbd5e1" rx="4"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <span class="trust-label">Talento verificado</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <span class="trust-label">NDA y cumplimiento</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <span class="trust-label">KPIs medibles</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/></svg>
+          </div>
+          <span class="trust-label">Sede en España</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Servicios</span>
+        <h2 class="section-title">Soluciones adaptadas a su negocio</h2>
+        <p class="section-desc">Profesionales especializados en las áreas críticas de su operación empresarial.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+          </div>
+          <h3 class="service-title">Asistencia Ejecutiva</h3>
+          <p class="service-desc">Gestión de agenda, coordinación de reuniones, seguimiento de proyectos y administración de prioridades empresariales.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+          </div>
+          <h3 class="service-title">Atención al Cliente</h3>
+          <p class="service-desc">Soporte multicanal con protocolos personalizados, gestión de incidencias y medición de satisfacción del cliente.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="service-title">Ventas y Prospección</h3>
+          <p class="service-desc">Cualificación de leads, seguimiento comercial, CRM management y reporting de conversión.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+          </div>
+          <h3 class="service-title">Social Media</h3>
+          <p class="service-desc">Community management, programación de contenido, monitorización de marca y reporting de engagement.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="service-title">Soporte Técnico</h3>
+          <p class="service-desc">Primer nivel de soporte, troubleshooting, documentación de incidencias y escalamiento estructurado.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="service-title">Administración</h3>
+          <p class="service-desc">Gestión documental, data entry, facturación, seguimiento de pagos y procesos administrativos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section section-alt" id="planes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Planes</span>
+        <h2 class="section-title">Estructura de precios transparente</h2>
+        <p class="section-desc">Seleccione el plan que mejor se adapte a su volumen operativo. Todos incluyen onboarding profesional.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Starter</div>
+          <h3 class="pricing-title">Plan de entrada</h3>
+          <ul class="pricing-features">
+            <li>1 asistente dedicado (4h/día)</li>
+            <li>Soporte email y WhatsApp Business</li>
+            <li>Reporte semanal de actividades</li>
+            <li>Onboarding en 48-72h</li>
+            <li>Contrato mensual flexible</li>
+          </ul>
+          <button class="btn btn-primary" onclick="openWizard('Starter')" style="width:100%;margin-top:24px">Solicitar plan</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Más solicitado</div>
+          <div class="pricing-name">Professional</div>
+          <h3 class="pricing-title">Plan completo</h3>
+          <ul class="pricing-features">
+            <li>1 asistente dedicado (8h/día)</li>
+            <li>Gestor de cuenta asignado</li>
+            <li>KPIs y auditoría quincenal</li>
+            <li>Horas extra disponibles</li>
+            <li>Integraciones básicas incluidas</li>
+            <li>SLA garantizado</li>
+          </ul>
+          <button class="btn btn-primary" onclick="openWizard('Professional')" style="width:100%;margin-top:24px">Solicitar plan</button>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-name">Enterprise</div>
+          <h3 class="pricing-title">Solución empresarial</h3>
+          <ul class="pricing-features">
+            <li>Equipo dedicado (2-10+ asistentes)</li>
+            <li>Procesos y playbooks personalizados</li>
+            <li>Account manager dedicado</li>
+            <li>Soporte técnico 24/7</li>
+            <li>Integraciones avanzadas</li>
+            <li>Reporting ejecutivo mensual</li>
+            <li>NDA y compliance total</li>
+          </ul>
+          <button class="btn btn-primary" onclick="openWizard('Enterprise')" style="width:100%;margin-top:24px">Solicitar propuesta</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Hablemos de su proyecto</h2>
+          <p>Nuestro equipo está disponible para analizar sus necesidades y diseñar una solución personalizada para su empresa.</p>
+          <button class="btn btn-primary" onclick="openWizard()">Agendar consultoría</button>
+        </div>
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="contact-method-title">WhatsApp Business</div>
+            <div class="contact-method-value"><a href="https://wa.me/34655356520" target="_blank" rel="noopener">+34 655 356 520</a></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-title">Email corporativo</div>
+            <div class="contact-method-value"><a href="mailto:remoti@usa.com">remoti@usa.com</a></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-title">Horario de atención</div>
+            <div class="contact-method-value">Lunes a Viernes: 9:00 – 18:00 CET</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">R</div>
+            <span class="footer-logo-text">Remoti</span>
+          </div>
+          <p class="footer-desc">Soluciones profesionales de asistencia virtual para empresas en España y LATAM. Talento verificado, procesos optimizados.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Servicios</h4>
+          <ul class="footer-links">
+            <li><a href="#servicios">Asistencia Ejecutiva</a></li>
+            <li><a href="#servicios">Atención al Cliente</a></li>
+            <li><a href="#servicios">Ventas y Prospección</a></li>
+            <li><a href="#servicios">Social Media</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Empresa</h4>
+          <ul class="footer-links">
+            <li><a href="#planes">Planes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#">Casos de éxito</a></li>
+            <li><a href="#">Sobre nosotros</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Acuerdos de NDA</a></li>
+            <li><a href="#">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; <span id="year"></span> Remoti. Todos los derechos reservados.</div>
+        <div>Sede en España · Servicio en español e inglés</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WIZARD MODAL -->
+  <div class="wizard-overlay" id="wizardOverlay">
+    <div class="wizard-modal">
+      <div class="wizard-header">
+        <div>
+          <div class="wizard-progress">
+            <div class="progress-dot active"></div>
+            <div class="progress-dot"></div>
+            <div class="progress-dot"></div>
+            <div class="progress-dot"></div>
+            <div class="progress-dot"></div>
+          </div>
+          <h3 class="wizard-title" id="wizardTitle">Información de contacto</h3>
+        </div>
+        <button class="wizard-close" onclick="closeWizard()">&times;</button>
+      </div>
+      <div class="wizard-body" id="wizardBody">
+        <!-- Dynamic content -->
+      </div>
+      <div class="wizard-actions">
+        <button class="btn btn-secondary" onclick="prevStep()" id="btnPrev" disabled>Anterior</button>
+        <button class="btn btn-primary" onclick="nextStep()" id="btnNext">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Wizard State
+    let currentStep = 0;
+    let formData = {
+      nombre: '',
+      email: '',
+      telefono: '',
+      empresa: '',
+      servicios: [],
+      experiencia: '',
+      disponibilidad: '',
+      horario: '',
+      idiomas: '',
+      plan: ''
+    };
+
+    const wizardSteps = [
+      {
+        title: 'Información de contacto',
+        content: () => `
+          <div class="form-group">
+            <label class="form-label">Nombre completo</label>
+            <input type="text" class="form-input" id="nombre" placeholder="Ej: María García" value="${formData.nombre}" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email corporativo</label>
+            <input type="email" class="form-input" id="email" placeholder="maria@empresa.com" value="${formData.email}" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-input" id="telefono" placeholder="+34 600 000 000" value="${formData.telefono}">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Empresa</label>
+            <input type="text" class="form-input" id="empresa" placeholder="Nombre de su empresa" value="${formData.empresa}" required>
+          </div>
+        `,
+        validate: () => {
+          formData.nombre = document.getElementById('nombre').value.trim();
+          formData.email = document.getElementById('email').value.trim();
+          formData.telefono = document.getElementById('telefono').value.trim();
+          formData.empresa = document.getElementById('empresa').value.trim();
+          return formData.nombre && formData.email && formData.empresa;
+        }
+      },
+      {
+        title: 'Servicios requeridos',
+        content: () => `
+          <div class="form-group">
+            <label class="form-label">Seleccione los servicios que necesita</label>
+            <div class="checkbox-grid">
+              ${['Asistencia Ejecutiva', 'Gestión de Agenda', 'Atención al Cliente', 'Social Media', 'Ventas y Prospección', 'Soporte Técnico', 'Administración'].map(s => `
+                <div class="checkbox-option">
+                  <input type="checkbox" id="srv_${s.replace(/\s/g,'_')}" value="${s}" ${formData.servicios.includes(s) ? 'checked' : ''}>
+                  <label for="srv_${s.replace(/\s/g,'_')}">${s}</label>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `,
+        validate: () => {
+          formData.servicios = Array.from(document.querySelectorAll('#wizardBody input[type="checkbox"]:checked')).map(el => el.value);
+          return formData.servicios.length > 0;
+        }
+      },
+      {
+        title: 'Requisitos del perfil',
+        content: () => `
+          <div class="form-group">
+            <label class="form-label">Experiencia requerida</label>
+            <select class="form-select" id="experiencia">
+              <option value="1-2 años" ${formData.experiencia === '1-2 años' ? 'selected' : ''}>1-2 años</option>
+              <option value="3-5 años" ${formData.experiencia === '3-5 años' ? 'selected' : ''}>3-5 años</option>
+              <option value="5+ años" ${formData.experiencia === '5+ años' ? 'selected' : ''}>Más de 5 años</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Disponibilidad horaria</label>
+            <select class="form-select" id="disponibilidad">
+              <option value="4h/día" ${formData.disponibilidad === '4h/día' ? 'selected' : ''}>4 horas/día</option>
+              <option value="8h/día" ${formData.disponibilidad === '8h/día' ? 'selected' : ''}>8 horas/día (tiempo completo)</option>
+              <option value="Part-time flexible" ${formData.disponibilidad === 'Part-time flexible' ? 'selected' : ''}>Part-time flexible</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Horario preferido</label>
+            <select class="form-select" id="horario">
+              <option value="CET (Europa)" ${formData.horario === 'CET (Europa)' ? 'selected' : ''}>CET (Europa)</option>
+              <option value="LATAM" ${formData.horario === 'LATAM' ? 'selected' : ''}>LATAM</option>
+              <option value="24/7 rotativo" ${formData.horario === '24/7 rotativo' ? 'selected' : ''}>24/7 rotativo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Requisitos de idioma</label>
+            <input type="text" class="form-input" id="idiomas" placeholder="Ej: Español nativo, Inglés avanzado (C1)" value="${formData.idiomas}">
+          </div>
+        `,
+        validate: () => {
+          formData.experiencia = document.getElementById('experiencia').value;
+          formData.disponibilidad = document.getElementById('disponibilidad').value;
+          formData.horario = document.getElementById('horario').value;
+          formData.idiomas = document.getElementById('idiomas').value.trim();
+          return true;
+        }
+      },
+      {
+        title: 'Selección de plan',
+        content: () => `
+          <div class="form-group">
+            <label class="form-label">Elija el plan más adecuado</label>
+            <div class="radio-grid">
+              <div class="radio-option">
+                <input type="radio" name="plan" id="plan_starter" value="Starter" ${formData.plan === 'Starter' ? 'checked' : ''}>
+                <label for="plan_starter">
+                  <div class="radio-title">Starter</div>
+                  <div class="radio-desc">1 asistente 4h/día · Reporte semanal · Soporte básico</div>
+                </label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="plan" id="plan_pro" value="Professional" ${formData.plan === 'Professional' ? 'checked' : ''}>
+                <label for="plan_pro">
+                  <div class="radio-title">Professional</div>
+                  <div class="radio-desc">1 asistente 8h/día · Gestor de cuenta · KPIs quincenales</div>
+                </label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="plan" id="plan_ent" value="Enterprise" ${formData.plan === 'Enterprise' ? 'checked' : ''}>
+                <label for="plan_ent">
+                  <div class="radio-title">Enterprise</div>
+                  <div class="radio-desc">Equipo dedicado · Procesos personalizados · Soporte 24/7</div>
+                </label>
+              </div>
+            </div>
+          </div>
+        `,
+        validate: () => {
+          const selected = document.querySelector('#wizardBody input[name="plan"]:checked');
+          formData.plan = selected ? selected.value : '';
+          return !!formData.plan;
+        }
+      },
+      {
+        title: 'Confirmación y envío',
+        content: () => `
+          <div class="summary-grid">
+            <div class="summary-row">
+              <span class="summary-label">Contacto</span>
+              <span class="summary-value">${formData.nombre}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Email</span>
+              <span class="summary-value">${formData.email}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Empresa</span>
+              <span class="summary-value">${formData.empresa}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Servicios</span>
+              <span class="summary-value">${formData.servicios.join(', ')}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Experiencia</span>
+              <span class="summary-value">${formData.experiencia}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Disponibilidad</span>
+              <span class="summary-value">${formData.disponibilidad}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Horario</span>
+              <span class="summary-value">${formData.horario}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Plan seleccionado</span>
+              <span class="summary-value">${formData.plan}</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label style="display:flex;gap:12px;align-items:start;cursor:pointer">
+              <input type="checkbox" id="consent" style="margin-top:4px">
+              <span style="font-size:14px;color:var(--ink-600)">Acepto ser contactado por el equipo de Remoti vía email y WhatsApp para discutir mi solicitud. He leído la política de privacidad.</span>
+            </label>
+          </div>
+          <div style="display:flex;gap:12px;margin-top:24px">
+            <button class="btn btn-primary" id="btnWhatsApp" onclick="sendWhatsApp()" disabled style="flex:1">Enviar por WhatsApp</button>
+            <button class="btn btn-secondary" id="btnEmail" onclick="sendEmail()" disabled style="flex:1">Enviar por Email</button>
+          </div>
+        `,
+        validate: () => true,
+        onMount: () => {
+          const consent = document.getElementById('consent');
+          const btnWA = document.getElementById('btnWhatsApp');
+          const btnEM = document.getElementById('btnEmail');
+          consent.addEventListener('change', () => {
+            btnWA.disabled = !consent.checked;
+            btnEM.disabled = !consent.checked;
+          });
+        }
+      }
+    ];
+
+    function openWizard(plan = '') {
+      if (plan) formData.plan = plan;
+      currentStep = 0;
+      renderStep();
+      document.getElementById('wizardOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeWizard() {
+      document.getElementById('wizardOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function renderStep() {
+      const step = wizardSteps[currentStep];
+      document.getElementById('wizardTitle').textContent = step.title;
+      document.getElementById('wizardBody').innerHTML = step.content();
+      
+      // Update progress dots
+      document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i <= currentStep);
+      });
+
+      // Update buttons
+      document.getElementById('btnPrev').disabled = currentStep === 0;
+      document.getElementById('btnNext').textContent = currentStep === wizardSteps.length - 1 ? 'Finalizar' : 'Siguiente';
+      document.getElementById('btnNext').style.display = currentStep === wizardSteps.length - 1 ? 'none' : 'flex';
+
+      // Call onMount if exists
+      if (step.onMount) setTimeout(step.onMount, 0);
+    }
+
+    function nextStep() {
+      const step = wizardSteps[currentStep];
+      if (step.validate && !step.validate()) {
+        alert('Por favor complete todos los campos requeridos');
+        return;
+      }
+      
+      if (currentStep < wizardSteps.length - 1) {
+        currentStep++;
+        renderStep();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        renderStep();
+      }
+    }
+
+    function composeMessage() {
+      return `Solicitud de asistencia virtual - Remoti
+
+Contacto: ${formData.nombre}
+Email: ${formData.email}
+Teléfono: ${formData.telefono || 'No proporcionado'}
+Empresa: ${formData.empresa}
+
+Servicios requeridos:
+${formData.servicios.map(s => '· ' + s).join('\n')}
+
+Requisitos:
+· Experiencia: ${formData.experiencia}
+· Disponibilidad: ${formData.disponibilidad}
+· Horario: ${formData.horario}
+· Idiomas: ${formData.idiomas || 'No especificado'}
+
+Plan seleccionado: ${formData.plan}
+
+Solicito información detallada y disponibilidad para una consultoría inicial.`;
+    }
+
+    function sendWhatsApp() {
+      const message = composeMessage();
+      const url = `https://wa.me/34655356520?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+      setTimeout(() => {
+        closeWizard();
+        alert('Su solicitud ha sido enviada. Nos pondremos en contacto en breve.');
+      }, 1000);
+    }
+
+    function sendEmail() {
+      const subject = encodeURIComponent(`Solicitud de servicio - ${formData.empresa}`);
+      const body = encodeURIComponent(composeMessage());
+      window.location.href = `mailto:remoti@usa.com?subject=${subject}&body=${body}`;
+      setTimeout(() => {
+        closeWizard();
+      }, 500);
+    }
+
+    // Close modal on overlay click
+    document.getElementById('wizardOverlay').addEventListener('click', (e) => {
+      if (e.target.id === 'wizardOverlay') closeWizard();
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start});
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe service cards and pricing cards
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.service-card, .pricing-card, .trust-item');
+      animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
