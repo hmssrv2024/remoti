@@ -154,7 +154,130 @@
       background:rgba(255,255,255,.1);
       border-color:rgba(255,255,255,.4);
     }
-    
+
+    /* WHATSAPP FLOATING ACTION */
+    .whatsapp-float-button{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      background:#25d366;
+      color:var(--white);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:var(--shadow-lg);
+      border:0;
+      cursor:pointer;
+      transition:var(--transition);
+      z-index:120;
+    }
+
+    .whatsapp-float-button:hover{transform:translateY(-3px);box-shadow:var(--shadow-xl)}
+
+    .whatsapp-float-button svg{width:30px;height:30px;fill:currentColor}
+
+    .whatsapp-sheet-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(15,23,42,.45);
+      backdrop-filter:blur(4px);
+      opacity:0;
+      pointer-events:none;
+      transition:var(--transition);
+      z-index:110;
+    }
+
+    .whatsapp-sheet{
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      width:320px;
+      max-width:calc(100% - 48px);
+      background:var(--white);
+      border-radius:18px;
+      box-shadow:var(--shadow-xl);
+      transform:translateY(24px);
+      opacity:0;
+      pointer-events:none;
+      transition:var(--transition);
+      z-index:130;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+
+    .whatsapp-sheet.active{
+      transform:translateY(0);
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .whatsapp-sheet-backdrop.active{opacity:1;pointer-events:auto}
+
+    .whatsapp-sheet-header{
+      padding:20px 24px 12px;
+      border-bottom:1px solid var(--ink-200);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .whatsapp-sheet-title{
+      font-size:18px;
+      font-weight:600;
+      color:var(--ink-800);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .whatsapp-sheet-title svg{width:20px;height:20px;fill:#25d366}
+
+    .whatsapp-sheet-close{
+      background:transparent;
+      border:0;
+      color:var(--ink-400);
+      font-size:26px;
+      line-height:1;
+      cursor:pointer;
+      transition:var(--transition);
+    }
+
+    .whatsapp-sheet-close:hover{color:var(--ink-700)}
+
+    .whatsapp-form{padding:20px 24px 24px;display:flex;flex-direction:column;gap:16px}
+
+    .whatsapp-form .form-group{display:flex;flex-direction:column;gap:6px}
+
+    .whatsapp-form label{font-size:13px;font-weight:600;color:var(--ink-600)}
+
+    .whatsapp-form input,.whatsapp-form textarea{
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid var(--ink-200);
+      font-size:14px;
+      transition:var(--transition);
+      font-family:inherit;
+      resize:vertical;
+    }
+
+    .whatsapp-form input:focus,.whatsapp-form textarea:focus{
+      border-color:var(--brand);
+      outline:none;
+      box-shadow:0 0 0 3px rgba(10,79,214,.12);
+    }
+
+    .whatsapp-helper{font-size:12px;color:var(--ink-400)}
+
+    @media(max-width:600px){
+      .whatsapp-float-button{right:16px;bottom:16px;width:58px;height:58px}
+      .whatsapp-sheet{right:16px;left:16px;bottom:16px;width:auto}
+    }
+  
     /* HERO */
     .hero{
       background:var(--gradient-hero);
@@ -1174,6 +1297,49 @@
     </div>
   </footer>
 
+  <button class="whatsapp-float-button" id="whatsappFloatButton" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 2.667c-7.364 0-13.333 5.97-13.333 13.333 0 2.35.614 4.637 1.783 6.667L2.667 29.333l6.884-1.747A13.26 13.26 0 0 0 16 29.333c7.364 0 13.333-5.97 13.333-13.333S23.364 2.667 16 2.667zm0 24a10.6 10.6 0 0 1-5.422-1.512l-.39-.233-4.09 1.037 1.074-3.993-.253-.41a10.67 10.67 0 1 1 9.081 5.11zm5.821-7.925c-.318-.16-1.882-.927-2.173-1.033-.29-.107-.501-.16-.711.16-.211.32-.815 1.033-1 1.246-.186.214-.37.24-.687.08-.318-.16-1.343-.497-2.56-1.586-.947-.84-1.587-1.878-1.773-2.198-.186-.32-.02-.494.14-.653.144-.142.318-.37.477-.556.16-.187.211-.32.318-.534.106-.213.053-.4-.027-.56-.08-.16-.711-1.72-.974-2.353-.257-.617-.518-.534-.711-.543-.186-.01-.4-.012-.614-.012-.214 0-.56.08-.853.4-.29.32-1.12 1.094-1.12 2.667s1.147 3.094 1.308 3.307c.16.213 2.26 3.45 5.478 4.833.766.33 1.362.528 1.826.675.767.244 1.466.21 2.018.127.616-.092 1.882-.769 2.15-1.512.266-.744.266-1.382.186-1.512-.08-.133-.29-.214-.607-.374z" />
+    </svg>
+  </button>
+
+  <div class="whatsapp-sheet-backdrop" id="whatsappSheetBackdrop" aria-hidden="true"></div>
+  <div class="whatsapp-sheet" id="whatsappSheet" role="dialog" aria-modal="true" aria-labelledby="whatsappSheetTitle">
+    <div class="whatsapp-sheet-header">
+      <div class="whatsapp-sheet-title" id="whatsappSheetTitle">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 2.667c-7.364 0-13.333 5.97-13.333 13.333 0 2.35.614 4.637 1.783 6.667L2.667 29.333l6.884-1.747A13.26 13.26 0 0 0 16 29.333c7.364 0 13.333-5.97 13.333-13.333S23.364 2.667 16 2.667zm0 24a10.6 10.6 0 0 1-5.422-1.512l-.39-.233-4.09 1.037 1.074-3.993-.253-.41a10.67 10.67 0 1 1 9.081 5.11zm5.821-7.925c-.318-.16-1.882-.927-2.173-1.033-.29-.107-.501-.16-.711.16-.211.32-.815 1.033-1 1.246-.186.214-.37.24-.687.08-.318-.16-1.343-.497-2.56-1.586-.947-.84-1.587-1.878-1.773-2.198-.186-.32-.02-.494.14-.653.144-.142.318-.37.477-.556.16-.187.211-.32.318-.534.106-.213.053-.4-.027-.56-.08-.16-.711-1.72-.974-2.353-.257-.617-.518-.534-.711-.543-.186-.01-.4-.012-.614-.012-.214 0-.56.08-.853.4-.29.32-1.12 1.094-1.12 2.667s1.147 3.094 1.308 3.307c.16.213 2.26 3.45 5.478 4.833.766.33 1.362.528 1.826.675.767.244 1.466.21 2.018.127.616-.092 1.882-.769 2.15-1.512.266-.744.266-1.382.186-1.512-.08-.133-.29-.214-.607-.374z" />
+        </svg>
+        ¡Hablemos por WhatsApp!
+      </div>
+      <button type="button" class="whatsapp-sheet-close" id="whatsappSheetClose" aria-label="Cerrar formulario">&times;</button>
+    </div>
+    <form class="whatsapp-form" id="whatsappForm">
+      <div class="form-group">
+        <label for="waNombre">Nombre completo *</label>
+        <input type="text" id="waNombre" name="nombre" placeholder="Ej. Laura Martínez" required>
+      </div>
+      <div class="form-group">
+        <label for="waEmpresa">Empresa</label>
+        <input type="text" id="waEmpresa" name="empresa" placeholder="Nombre de la empresa">
+      </div>
+      <div class="form-group">
+        <label for="waTelefono">Teléfono de contacto</label>
+        <input type="tel" id="waTelefono" name="telefono" placeholder="+34 600 000 000">
+      </div>
+      <div class="form-group">
+        <label for="waServicio">Servicio de interés *</label>
+        <input type="text" id="waServicio" name="servicio" placeholder="Asistencia ejecutiva, atención al cliente..." required>
+      </div>
+      <div class="form-group">
+        <label for="waMensaje">Necesidades o contexto</label>
+        <textarea id="waMensaje" name="mensaje" rows="3" placeholder="Cuéntenos qué necesita su equipo"></textarea>
+        <p class="whatsapp-helper">Usaremos estos datos para preparar el mensaje y atenderle más rápido.</p>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Iniciar conversación</button>
+    </form>
+  </div>
+
   <!-- WIZARD MODAL -->
   <div class="wizard-overlay" id="wizardOverlay">
     <div class="wizard-modal">
@@ -1498,6 +1664,60 @@ Solicito información detallada y disponibilidad para una consultoría inicial.`
       }, 500);
     }
 
+    // WhatsApp floating sheet interactions
+    const whatsappButton = document.getElementById('whatsappFloatButton');
+    const whatsappSheet = document.getElementById('whatsappSheet');
+    const whatsappBackdrop = document.getElementById('whatsappSheetBackdrop');
+    const whatsappClose = document.getElementById('whatsappSheetClose');
+    const whatsappForm = document.getElementById('whatsappForm');
+
+    function toggleWhatsAppSheet(show) {
+      if (show) {
+        whatsappSheet.classList.add('active');
+        whatsappBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          const nameField = document.getElementById('waNombre');
+          if (nameField) nameField.focus();
+        }, 150);
+      } else {
+        whatsappSheet.classList.remove('active');
+        whatsappBackdrop.classList.remove('active');
+        const wizardOpen = document.getElementById('wizardOverlay').classList.contains('active');
+        document.body.style.overflow = wizardOpen ? 'hidden' : '';
+      }
+    }
+
+    if (whatsappButton && whatsappBackdrop && whatsappClose && whatsappForm) {
+      whatsappButton.addEventListener('click', () => toggleWhatsAppSheet(true));
+      whatsappBackdrop.addEventListener('click', () => toggleWhatsAppSheet(false));
+      whatsappClose.addEventListener('click', () => toggleWhatsAppSheet(false));
+
+      whatsappForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formDataSheet = new FormData(whatsappForm);
+        const nombre = formDataSheet.get('nombre').trim();
+        const empresa = formDataSheet.get('empresa').trim();
+        const telefono = formDataSheet.get('telefono').trim();
+        const servicio = formDataSheet.get('servicio').trim();
+        const mensaje = formDataSheet.get('mensaje').trim();
+
+        const lines = [
+          `Hola Remoti, soy ${nombre}.`,
+          empresa ? `Empresa: ${empresa}` : '',
+          servicio ? `Servicio de interés: ${servicio}` : '',
+          telefono ? `Teléfono: ${telefono}` : '',
+          mensaje ? `Necesidades: ${mensaje}` : '',
+          'Gracias, quedo atento/a a su respuesta.'
+        ].filter(Boolean);
+
+        const whatsappUrl = `https://wa.me/34655356520?text=${encodeURIComponent(lines.join('\n'))}`;
+        window.open(whatsappUrl, '_blank');
+        whatsappForm.reset();
+        toggleWhatsAppSheet(false);
+      });
+    }
+
     // Close modal on overlay click
     document.getElementById('wizardOverlay').addEventListener('click', (e) => {
       if (e.target.id === 'wizardOverlay') closeWizard();
@@ -1509,7 +1729,7 @@ Solicito información detallada y disponibilidad para una consultoría inicial.`
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start});
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
