@@ -5,7 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Remoti — Soluciones Empresariales de Asistencia Virtual | España</title>
   <meta name="description" content="Remoti ofrece servicios profesionales de asistencia virtual para empresas en España. Talento verificado, procesos optimizados y resultados medibles.">
+  <meta name="keywords" content="asistencia virtual, asistentes remotos, soporte administrativo, delegación de tareas, externalización de procesos, remoti">
+  <meta name="author" content="Remoti">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="es-ES">
+  <link rel="canonical" href="https://remoti.es/">
+  <link rel="alternate" hreflang="es" href="https://remoti.es/">
+  <link rel="icon" type="image/png" sizes="32x32" href="remoti.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="remoti.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="remoti.png">
+  <meta property="og:title" content="Remoti — Asistentes Virtuales para Empresas en España">
+  <meta property="og:description" content="Remoti ofrece servicios profesionales de asistencia virtual para empresas en España. Talento verificado, procesos optimizados y resultados medibles.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://remoti.es/">
+  <meta property="og:image" content="https://remoti.es/remoti.png">
+  <meta property="og:site_name" content="Remoti">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Remoti — Soluciones Empresariales de Asistencia Virtual">
+  <meta name="twitter:description" content="Remoti ofrece servicios profesionales de asistencia virtual para empresas en España. Talento verificado, procesos optimizados y resultados medibles.">
+  <meta name="twitter:image" content="https://remoti.es/remoti.png">
   <meta name="theme-color" content="#0a4fd6">
+  <meta name="application-name" content="Remoti">
+  <meta name="apple-mobile-web-app-title" content="Remoti">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Remoti",
+      "url": "https://remoti.es/",
+      "logo": "https://remoti.es/remoti.png",
+      "description": "Remoti ofrece servicios profesionales de asistencia virtual para empresas en España. Talento verificado, procesos optimizados y resultados medibles."
+    }
+  </script>
   <style>
     :root{
       --ink-900:#0a0e1a;
@@ -76,19 +108,20 @@
       color:var(--ink-900);
       letter-spacing:-0.02em;
     }
-    
-    .logo-mark{
+
+    .logo-image{
       width:40px;
       height:40px;
       border-radius:10px;
-      background:var(--gradient-primary);
-      box-shadow:0 4px 12px rgba(10,79,214,.3);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--white);
-      font-weight:800;
-      font-size:18px;
+      object-fit:contain;
+      box-shadow:0 4px 12px rgba(10,79,214,.12);
+    }
+
+    .logo-text{
+      font-weight:700;
+      font-size:20px;
+      color:var(--ink-900);
+      letter-spacing:-0.02em;
     }
     
     .nav-links{
@@ -1262,17 +1295,13 @@
       gap:12px;
       margin-bottom:16px;
     }
-    
-    .footer-logo-mark{
+
+    .footer-logo-image{
       width:36px;
       height:36px;
-      background:var(--gradient-primary);
       border-radius:8px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--white);
-      font-weight:800;
+      object-fit:contain;
+      box-shadow:0 4px 12px rgba(10,79,214,.18);
     }
     
     .footer-logo-text{
@@ -1389,10 +1418,10 @@
   <!-- NAVIGATION -->
   <nav class="nav">
     <div class="container">
-        <div class="nav-inner">
-        <div class="logo">
-          <div class="logo-mark">R</div>
-          <span>Remoti</span>
+      <div class="nav-inner">
+        <div class="logo" aria-label="Remoti">
+          <img src="remoti.png" class="logo-image" alt="Logo de Remoti" width="40" height="40">
+          <span class="logo-text">Remoti</span>
         </div>
         <div class="nav-links">
           <a href="#servicios">Servicios</a>
@@ -2187,7 +2216,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <div class="footer-logo-mark">R</div>
+            <img src="remoti.png" class="footer-logo-image" alt="Logo de Remoti" width="36" height="36" loading="lazy">
             <span class="footer-logo-text">Remoti</span>
           </div>
           <p class="footer-desc">Soluciones profesionales de asistencia virtual para empresas en España y LATAM. Talento verificado, procesos optimizados.</p>
