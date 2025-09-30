@@ -105,7 +105,42 @@
     }
     
     .nav-links a:hover{color:var(--ink-900)}
-    
+
+    .nav-user{
+      display:none;
+      align-items:center;
+      gap:12px;
+      margin-left:24px;
+    }
+
+    .nav-user.active{
+      display:flex;
+    }
+
+    .nav-user-badge{
+      background:var(--ink-100);
+      color:var(--ink-800);
+      font-weight:600;
+      padding:8px 16px;
+      border-radius:999px;
+      font-size:14px;
+    }
+
+    .nav-user-clear{
+      background:transparent;
+      border:0;
+      color:var(--ink-400);
+      font-size:18px;
+      cursor:pointer;
+      transition:var(--transition);
+      padding:4px;
+      line-height:1;
+    }
+
+    .nav-user-clear:hover{
+      color:var(--ink-700);
+    }
+
     .btn{
       appearance:none;
       border:0;
@@ -336,7 +371,35 @@
       gap:24px;
       margin-top:48px;
     }
-    
+
+    .hero-personalized{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:var(--radius);
+      padding:24px;
+      margin-top:24px;
+      color:var(--white);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:16px;
+      font-weight:700;
+    }
+
+    .hero-personalized a{
+      color:var(--white);
+      font-weight:600;
+      text-decoration:underline;
+      text-underline-offset:4px;
+      width:max-content;
+    }
+
     .stat-item{
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.1);
@@ -602,7 +665,193 @@
       width:100%;
       justify-content:center;
     }
-    
+
+    /* APPLICANT REGISTRATION */
+    .applicant-section{
+      background:var(--white);
+    }
+
+    .applicant-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:32px;
+      align-items:flex-start;
+    }
+
+    .application-card{
+      background:var(--white);
+      border:1px solid var(--ink-200);
+      border-radius:20px;
+      padding:32px;
+      box-shadow:var(--shadow-md);
+    }
+
+    .application-header h3{
+      font-size:24px;
+      font-weight:800;
+      color:var(--ink-900);
+      margin-bottom:8px;
+    }
+
+    .application-header p{
+      font-size:15px;
+      color:var(--ink-600);
+    }
+
+    .personalization-banner{
+      background:var(--ink-50);
+      border:1px solid var(--ink-200);
+      border-radius:16px;
+      padding:20px;
+      margin:24px 0;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      color:var(--ink-700);
+    }
+
+    .application-section{
+      margin-bottom:32px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .application-section:last-of-type{
+      margin-bottom:0;
+    }
+
+    .application-section-title{
+      font-size:18px;
+      font-weight:700;
+      color:var(--ink-900);
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:24px;
+    }
+
+    .form-row .form-group{
+      margin-bottom:0;
+    }
+
+    .form-helper{
+      font-size:13px;
+      color:var(--ink-600);
+    }
+
+    .application-actions{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:16px;
+      margin-top:32px;
+    }
+
+    .status-message{
+      margin-top:16px;
+      font-size:14px;
+      font-weight:600;
+      color:var(--brand);
+    }
+
+    .status-message.error{
+      color:#dc2626;
+    }
+
+    .status-message.success{
+      color:var(--success);
+    }
+
+    .application-summary{
+      background:var(--ink-50);
+      border:1px solid var(--ink-200);
+      border-radius:20px;
+      padding:32px;
+      box-shadow:var(--shadow-sm);
+      position:sticky;
+      top:104px;
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    .application-summary-title{
+      font-size:20px;
+      font-weight:700;
+      color:var(--ink-900);
+      margin-bottom:4px;
+    }
+
+    .application-summary-desc{
+      font-size:14px;
+      color:var(--ink-600);
+    }
+
+    .summary-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      margin:0;
+      padding:0;
+    }
+
+    .summary-list li{
+      border-bottom:1px solid var(--ink-200);
+      padding-bottom:16px;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .summary-list li:last-child{
+      border-bottom:0;
+      padding-bottom:0;
+    }
+
+    .summary-label{
+      font-size:13px;
+      font-weight:600;
+      color:var(--ink-600);
+      letter-spacing:0.03em;
+      text-transform:uppercase;
+    }
+
+    .summary-value{
+      font-size:16px;
+      font-weight:600;
+      color:var(--ink-900);
+      word-break:break-word;
+    }
+
+    .summary-doc{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .summary-hint{
+      font-size:13px;
+      color:var(--ink-600);
+      line-height:1.6;
+    }
+
+    .file-upload input[type="file"]{
+      padding:10px 16px;
+      border:2px dashed var(--ink-200);
+      border-radius:var(--radius);
+      background:var(--ink-50);
+      cursor:pointer;
+    }
+
+    .file-upload input[type="file"]:hover{
+      border-color:var(--brand-light);
+      background:var(--ink-100);
+    }
+
     /* PRICING */
     .pricing-grid{
       display:grid;
@@ -1101,14 +1350,36 @@
       .hero{
         padding:80px 0 60px;
       }
-      
+
       .section{
         padding:64px 0;
       }
-      
+
       .pricing-grid,
       .services-grid{
         grid-template-columns:1fr;
+      }
+
+      .applicant-grid{
+        grid-template-columns:1fr;
+      }
+
+      .application-summary{
+        position:static;
+      }
+
+      .application-actions{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .application-actions .btn{
+        width:100%;
+        justify-content:center;
+      }
+
+      .hero-personalized{
+        padding:20px;
       }
     }
   </style>
@@ -1118,7 +1389,7 @@
   <!-- NAVIGATION -->
   <nav class="nav">
     <div class="container">
-      <div class="nav-inner">
+        <div class="nav-inner">
         <div class="logo">
           <div class="logo-mark">R</div>
           <span>Remoti</span>
@@ -1126,9 +1397,14 @@
         <div class="nav-links">
           <a href="#servicios">Servicios</a>
           <a href="#vacantes">Vacantes</a>
+          <a href="#postula">Postula</a>
           <a href="#planes">Planes</a>
           <a href="#contacto">Contacto</a>
           <button class="btn btn-primary" onclick="openWizard()">Comenzar</button>
+        </div>
+        <div class="nav-user" id="navUser" hidden>
+          <span class="nav-user-badge" id="navUserBadge"></span>
+          <button type="button" class="nav-user-clear" id="navUserClear" aria-label="Olvidar registro">&times;</button>
         </div>
       </div>
     </div>
@@ -1143,7 +1419,13 @@
           <p>Optimice sus operaciones con profesionales verificados. Servicio integral en español e inglés, procesos documentados y resultados medibles.</p>
           <div class="hero-cta">
             <button class="btn btn-primary" onclick="openWizard()">Solicitar consultoría</button>
+            <a href="#postula" class="btn btn-secondary">Registrarme como asistente</a>
             <a href="#planes" class="btn btn-ghost">Explorar planes</a>
+          </div>
+          <div class="hero-personalized" id="heroPersonalized" hidden>
+            <span class="hero-badge" id="heroBadge">Hola</span>
+            <p id="heroPersonalizedCopy">Tu perfil quedó guardado localmente. Puedes actualizar tu postulación cuando quieras.</p>
+            <a href="#postula">Actualizar mis datos</a>
           </div>
           <div class="hero-stats">
             <div class="stat-item">
@@ -1556,6 +1838,265 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICANT REGISTRATION -->
+  <section class="section applicant-section" id="postula">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Talento Remoti</span>
+        <h2 class="section-title">Inscríbete para aplicar a nuestras vacantes</h2>
+        <p class="section-desc">Completa la planilla detallada, adjunta tu CV y cuéntanos cómo te gustaría colaborar con nosotros. Guardaremos tu postulación en este dispositivo para que la puedas actualizar cuando quieras.</p>
+      </div>
+      <div class="applicant-grid">
+        <div class="application-card">
+          <div class="application-header">
+            <h3>Registro de candidatos</h3>
+            <p>Los campos marcados con * son obligatorios. Utiliza datos actualizados para acelerar el proceso de selección.</p>
+          </div>
+          <div class="personalization-banner" id="personalizationBanner" hidden>
+            <div>
+              <strong>¡Hola <span id="personalizationName"></span>!</strong>
+            </div>
+            <p>Ya tenemos tu información guardada. Si realizas cambios recuerda volver a guardar para mantener tu perfil al día.</p>
+          </div>
+          <form class="application-form" id="applicantForm" novalidate>
+            <div class="application-section">
+              <h4 class="application-section-title">Datos personales</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="postulanteNombre">Nombre completo*</label>
+                  <input class="form-input" type="text" id="postulanteNombre" name="nombre" placeholder="Ej: Laura Martínez" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="postulanteEmail">Correo electrónico*</label>
+                  <input class="form-input" type="email" id="postulanteEmail" name="email" placeholder="tuemail@ejemplo.com" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="postulanteTelefono">Teléfono / WhatsApp</label>
+                  <input class="form-input" type="tel" id="postulanteTelefono" name="telefono" placeholder="+34 600 000 000" inputmode="tel">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="postulantePais">País de residencia*</label>
+                  <input class="form-input" type="text" id="postulantePais" name="pais" placeholder="España" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="postulanteCiudad">Ciudad</label>
+                  <input class="form-input" type="text" id="postulanteCiudad" name="ciudad" placeholder="Madrid">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="postulanteFechaNacimiento">Fecha de nacimiento</label>
+                  <input class="form-input" type="date" id="postulanteFechaNacimiento" name="fechaNacimiento">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="postulanteLinkedin">LinkedIn o web profesional</label>
+                  <input class="form-input" type="url" id="postulanteLinkedin" name="linkedin" placeholder="https://linkedin.com/in/tu-perfil">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="postulantePortfolio">Portfolio o proyecto destacado</label>
+                  <input class="form-input" type="url" id="postulantePortfolio" name="portfolio" placeholder="https://mi-portafolio.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="postulanteResumen">Resumen profesional</label>
+                <textarea class="form-textarea" id="postulanteResumen" name="resumen" placeholder="Cuéntanos brevemente tu trayectoria, logros y qué tipo de proyectos disfrutas."></textarea>
+              </div>
+            </div>
+
+            <div class="application-section">
+              <h4 class="application-section-title">Experiencia y habilidades</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="postulanteExperiencia">Años de experiencia*</label>
+                  <select class="form-select" id="postulanteExperiencia" name="experiencia" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="0-1 años">0-1 años</option>
+                    <option value="1-3 años">1-3 años</option>
+                    <option value="3-5 años">3-5 años</option>
+                    <option value="5+ años">Más de 5 años</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="postulanteExpectativa">Expectativa salarial (USD/h)</label>
+                  <input class="form-input" type="text" id="postulanteExpectativa" name="expectativa" placeholder="Ej: 20">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Áreas de interés*</label>
+                <div class="checkbox-grid">
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="area_ejecutiva" name="areasInteres" value="Asistencia ejecutiva">
+                    <label for="area_ejecutiva">Asistencia ejecutiva</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="area_cliente" name="areasInteres" value="Atención al cliente">
+                    <label for="area_cliente">Atención al cliente</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="area_ventas" name="areasInteres" value="Ventas y prospección">
+                    <label for="area_ventas">Ventas y prospección</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="area_contenido" name="areasInteres" value="Contenido y redes">
+                    <label for="area_contenido">Contenido y redes</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="area_operaciones" name="areasInteres" value="Operaciones y administración">
+                    <label for="area_operaciones">Operaciones y administración</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="area_datos" name="areasInteres" value="Datos y reporting">
+                    <label for="area_datos">Datos y reporting</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="postulanteHerramientas">Herramientas y software dominados</label>
+                <textarea class="form-textarea" id="postulanteHerramientas" name="herramientas" placeholder="Ej: Google Workspace, HubSpot, Notion, Canva, Slack"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="postulanteIdiomas">Idiomas y nivel</label>
+                <textarea class="form-textarea" id="postulanteIdiomas" name="idiomas" placeholder="Detalla tu nivel en español, inglés u otros idiomas relevantes."></textarea>
+              </div>
+            </div>
+
+            <div class="application-section">
+              <h4 class="application-section-title">Disponibilidad</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="postulanteDisponibilidad">Carga horaria*</label>
+                  <select class="form-select" id="postulanteDisponibilidad" name="disponibilidad" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Tiempo completo">Tiempo completo (40h)</option>
+                    <option value="Medio tiempo">Medio tiempo (20h)</option>
+                    <option value="Por horas">Por horas / según proyecto</option>
+                    <option value="Fines de semana">Fines de semana</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="postulanteFechaInicio">Disponibilidad desde</label>
+                  <input class="form-input" type="date" id="postulanteFechaInicio" name="fechaInicio">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Modalidad preferida</label>
+                <div class="radio-grid">
+                  <div class="radio-option">
+                    <input type="radio" id="modalidad_freelance" name="modalidad" value="Freelance">
+                    <label for="modalidad_freelance">
+                      <div class="radio-title">Freelance</div>
+                      <div class="radio-desc">Proyectos puntuales o por horas.</div>
+                    </label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="modalidad_contrato" name="modalidad" value="Contrato fijo">
+                    <label for="modalidad_contrato">
+                      <div class="radio-title">Contrato fijo</div>
+                      <div class="radio-desc">Relación continua con clientes estables.</div>
+                    </label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="modalidad_proyecto" name="modalidad" value="Por proyecto">
+                    <label for="modalidad_proyecto">
+                      <div class="radio-title">Por proyecto</div>
+                      <div class="radio-desc">Entregables específicos con fecha fin.</div>
+                    </label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="modalidad_temporal" name="modalidad" value="Temporal">
+                    <label for="modalidad_temporal">
+                      <div class="radio-title">Temporal</div>
+                      <div class="radio-desc">Coberturas de licencias o campañas.</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="postulanteFranja">Franja horaria</label>
+                <select class="form-select" id="postulanteFranja" name="franja">
+                  <option value="">Selecciona una opción</option>
+                  <option value="CET / Europa">CET / Europa</option>
+                  <option value="Américas">Américas</option>
+                  <option value="Flexible global">Flexible global</option>
+                  <option value="Rotativo">Rotativo</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="application-section">
+              <h4 class="application-section-title">Documentos y presentación</h4>
+              <div class="form-group file-upload">
+                <label class="form-label" for="postulanteCv">Adjunta tu CV (PDF o DOC, máx. 5 MB)</label>
+                <input class="form-input" type="file" id="postulanteCv" name="cv" accept=".pdf,.doc,.docx,.odt">
+                <p class="form-helper">El archivo se guarda en tu navegador para futuras actualizaciones.</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="postulanteMensaje">Carta de presentación</label>
+                <textarea class="form-textarea" id="postulanteMensaje" name="mensaje" placeholder="Comparte tus motivaciones, disponibilidad adicional o aspectos que quieras destacar."></textarea>
+              </div>
+            </div>
+
+            <div class="application-actions">
+              <button type="submit" class="btn btn-primary">Guardar postulación</button>
+              <button type="button" class="btn btn-secondary" id="clearApplicantRecord">Borrar datos guardados</button>
+              <span class="form-helper">Guardaremos la información únicamente en este dispositivo.</span>
+            </div>
+            <div class="status-message" id="applicantStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+        <aside class="application-summary">
+          <div>
+            <h4 class="application-summary-title">Tu postulación</h4>
+            <p class="application-summary-desc">Revisa el resumen de la información almacenada para personalizar futuras vacantes.</p>
+          </div>
+          <ul class="summary-list">
+            <li>
+              <span class="summary-label">Nombre</span>
+              <span class="summary-value" id="summaryName">—</span>
+            </li>
+            <li>
+              <span class="summary-label">Contacto</span>
+              <span class="summary-value" id="summaryContact">—</span>
+            </li>
+            <li>
+              <span class="summary-label">Ubicación</span>
+              <span class="summary-value" id="summaryLocation">—</span>
+            </li>
+            <li>
+              <span class="summary-label">Áreas de interés</span>
+              <span class="summary-value" id="summaryAreas">—</span>
+            </li>
+            <li>
+              <span class="summary-label">Experiencia</span>
+              <span class="summary-value" id="summaryExperience">—</span>
+            </li>
+            <li>
+              <span class="summary-label">Disponibilidad</span>
+              <span class="summary-value" id="summaryAvailability">—</span>
+            </li>
+            <li>
+              <span class="summary-label">Modalidad</span>
+              <span class="summary-value" id="summaryModality">—</span>
+            </li>
+            <li>
+              <span class="summary-label">Portfolio</span>
+              <span class="summary-value" id="summaryPortfolio">—</span>
+            </li>
+          </ul>
+          <div class="summary-doc" id="summaryCvWrapper" hidden>
+            <span class="summary-label">CV adjunto</span>
+            <a class="btn btn-secondary" id="summaryCvLink" href="#" download>Descargar CV guardado</a>
+          </div>
+          <p class="summary-hint">Puedes volver en cualquier momento para actualizar tu información o cargar un nuevo CV.</p>
+        </aside>
       </div>
     </div>
   </section>
@@ -2104,6 +2645,319 @@ Solicito información detallada y disponibilidad para una consultoría inicial.`
         window.open(whatsappUrl, '_blank');
         whatsappForm.reset();
         toggleWhatsAppSheet(false);
+      });
+    }
+
+    const applicantStorageKey = 'remotiApplicantProfile';
+    const candidateForm = document.getElementById('applicantForm');
+    const applicantStatus = document.getElementById('applicantStatus');
+    const personalizationBanner = document.getElementById('personalizationBanner');
+    const personalizationName = document.getElementById('personalizationName');
+    const heroPersonalized = document.getElementById('heroPersonalized');
+    const heroBadge = document.getElementById('heroBadge');
+    const heroPersonalizedCopy = document.getElementById('heroPersonalizedCopy');
+    const defaultHeroCopy = heroPersonalizedCopy ? heroPersonalizedCopy.textContent : '';
+    const navUser = document.getElementById('navUser');
+    const navUserBadge = document.getElementById('navUserBadge');
+    const navUserClear = document.getElementById('navUserClear');
+    const clearApplicantRecord = document.getElementById('clearApplicantRecord');
+    const summaryElements = {
+      name: document.getElementById('summaryName'),
+      contact: document.getElementById('summaryContact'),
+      location: document.getElementById('summaryLocation'),
+      areas: document.getElementById('summaryAreas'),
+      experience: document.getElementById('summaryExperience'),
+      availability: document.getElementById('summaryAvailability'),
+      modality: document.getElementById('summaryModality'),
+      portfolio: document.getElementById('summaryPortfolio'),
+      cvWrapper: document.getElementById('summaryCvWrapper'),
+      cvLink: document.getElementById('summaryCvLink')
+    };
+
+    function getStoredApplicant(){
+      const stored = localStorage.getItem(applicantStorageKey);
+      if (!stored) return null;
+      try{
+        return JSON.parse(stored);
+      }catch(e){
+        return null;
+      }
+    }
+
+    function showApplicantStatus(message = '', type){
+      if (!applicantStatus) return;
+      applicantStatus.textContent = message;
+      applicantStatus.classList.remove('success', 'error');
+      if (type){
+        applicantStatus.classList.add(type);
+      }
+    }
+
+    function readFileAsDataURL(file){
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function getFirstName(fullName){
+      if (!fullName) return '';
+      const cleaned = fullName.trim();
+      if (!cleaned) return '';
+      return cleaned.split(/\s+/)[0];
+    }
+
+    function updatePersonalization(data){
+      const hasName = !!(data && data.nombreCompleto);
+      const firstName = hasName ? getFirstName(data.nombreCompleto) : '';
+      if (heroPersonalized){
+        heroPersonalized.hidden = !hasName;
+      }
+      if (heroBadge && hasName){
+        heroBadge.textContent = `Hola, ${firstName || data.nombreCompleto} 👋`;
+      }
+      if (heroPersonalizedCopy){
+        if (hasName && Array.isArray(data.areasInteres) && data.areasInteres.length){
+          const areasText = data.areasInteres.join(', ');
+          heroPersonalizedCopy.textContent = `Registramos tus intereses en ${areasText}. Actualiza tu postulación cuando quieras.`;
+        } else {
+          heroPersonalizedCopy.textContent = defaultHeroCopy || 'Tu perfil quedó guardado localmente. Puedes actualizar tu postulación cuando quieras.';
+        }
+      }
+      if (personalizationBanner){
+        personalizationBanner.hidden = !hasName;
+        if (!personalizationBanner.hidden && personalizationName){
+          personalizationName.textContent = firstName || data.nombreCompleto;
+        }
+      }
+      if (navUser){
+        navUser.hidden = !hasName;
+        navUser.classList.toggle('active', hasName);
+      }
+      if (navUserBadge){
+        navUserBadge.textContent = hasName ? (firstName || data.nombreCompleto) : '';
+      }
+    }
+
+    function updateSummary(data){
+      const hasData = !!data;
+      if (summaryElements.name){
+        summaryElements.name.textContent = hasData && data.nombreCompleto ? data.nombreCompleto : '—';
+      }
+      if (summaryElements.contact){
+        if (hasData && (data.email || data.telefono)){
+          const parts = [data.email, data.telefono].filter(Boolean);
+          summaryElements.contact.textContent = parts.join(' • ');
+        } else {
+          summaryElements.contact.textContent = '—';
+        }
+      }
+      if (summaryElements.location){
+        if (hasData && (data.pais || data.ciudad)){
+          const parts = [data.ciudad, data.pais].filter(Boolean);
+          summaryElements.location.textContent = parts.join(', ');
+        } else {
+          summaryElements.location.textContent = '—';
+        }
+      }
+      if (summaryElements.areas){
+        summaryElements.areas.textContent = hasData && Array.isArray(data.areasInteres) && data.areasInteres.length ? data.areasInteres.join(', ') : '—';
+      }
+      if (summaryElements.experience){
+        summaryElements.experience.textContent = hasData && data.experiencia ? data.experiencia : '—';
+      }
+      if (summaryElements.availability){
+        if (hasData && (data.disponibilidad || data.franja || data.fechaInicio)){
+          const availabilityParts = [data.disponibilidad, data.franja, data.fechaInicio ? `Desde ${data.fechaInicio}` : ''].filter(Boolean);
+          summaryElements.availability.textContent = availabilityParts.join(' · ');
+        } else {
+          summaryElements.availability.textContent = '—';
+        }
+      }
+      if (summaryElements.modality){
+        summaryElements.modality.textContent = hasData && data.modalidad ? data.modalidad : '—';
+      }
+      if (summaryElements.portfolio){
+        const portfolioValue = hasData && (data.portfolio || data.linkedin) ? (data.portfolio || data.linkedin) : '';
+        summaryElements.portfolio.textContent = portfolioValue || '—';
+      }
+      if (summaryElements.cvWrapper && summaryElements.cvLink){
+        if (hasData && data.cvBase64){
+          summaryElements.cvWrapper.hidden = false;
+          summaryElements.cvLink.href = data.cvBase64;
+          summaryElements.cvLink.download = data.cvFileName || 'cv_remoti';
+          summaryElements.cvLink.textContent = data.cvFileName ? `Descargar ${data.cvFileName}` : 'Descargar CV guardado';
+        } else {
+          summaryElements.cvWrapper.hidden = true;
+          summaryElements.cvLink.href = '#';
+          summaryElements.cvLink.removeAttribute('download');
+          summaryElements.cvLink.textContent = 'Descargar CV guardado';
+        }
+      }
+    }
+
+    function refreshCandidateUI(data){
+      updatePersonalization(data);
+      updateSummary(data);
+      if (!data && personalizationBanner){
+        personalizationBanner.hidden = true;
+      }
+    }
+
+    function fillCandidateForm(data){
+      if (!candidateForm || !data) return;
+      const assignValue = (selector, value) => {
+        const field = candidateForm.querySelector(selector);
+        if (field) field.value = value || '';
+      };
+      assignValue('#postulanteNombre', data.nombreCompleto);
+      assignValue('#postulanteEmail', data.email);
+      assignValue('#postulanteTelefono', data.telefono);
+      assignValue('#postulantePais', data.pais);
+      assignValue('#postulanteCiudad', data.ciudad);
+      assignValue('#postulanteFechaNacimiento', data.fechaNacimiento);
+      assignValue('#postulanteLinkedin', data.linkedin);
+      assignValue('#postulantePortfolio', data.portfolio);
+      assignValue('#postulanteResumen', data.resumen);
+      assignValue('#postulanteExperiencia', data.experiencia);
+      assignValue('#postulanteExpectativa', data.expectativa);
+      assignValue('#postulanteHerramientas', data.herramientas);
+      assignValue('#postulanteIdiomas', data.idiomas);
+      assignValue('#postulanteDisponibilidad', data.disponibilidad);
+      assignValue('#postulanteFechaInicio', data.fechaInicio);
+      assignValue('#postulanteFranja', data.franja);
+      assignValue('#postulanteMensaje', data.mensaje);
+      candidateForm.querySelectorAll('input[name="areasInteres"]').forEach(input => {
+        input.checked = Array.isArray(data.areasInteres) ? data.areasInteres.includes(input.value) : false;
+      });
+      if (data.modalidad){
+        const modalityField = candidateForm.querySelector(`input[name="modalidad"][value="${data.modalidad}"]`);
+        if (modalityField) modalityField.checked = true;
+      }
+    }
+
+    function collectCandidateFormData(existingData = {}){
+      if (!candidateForm) return existingData;
+      const formData = new FormData(candidateForm);
+      const areasInteres = Array.from(candidateForm.querySelectorAll('input[name="areasInteres"]:checked')).map(input => input.value);
+      const selectedModalidad = candidateForm.querySelector('input[name="modalidad"]:checked');
+      return {
+        nombreCompleto: (formData.get('nombre') || '').trim(),
+        email: (formData.get('email') || '').trim(),
+        telefono: (formData.get('telefono') || '').trim(),
+        pais: (formData.get('pais') || '').trim(),
+        ciudad: (formData.get('ciudad') || '').trim(),
+        fechaNacimiento: formData.get('fechaNacimiento') || '',
+        linkedin: (formData.get('linkedin') || '').trim(),
+        portfolio: (formData.get('portfolio') || '').trim(),
+        resumen: (formData.get('resumen') || '').trim(),
+        experiencia: formData.get('experiencia') || '',
+        expectativa: (formData.get('expectativa') || '').trim(),
+        areasInteres,
+        herramientas: (formData.get('herramientas') || '').trim(),
+        idiomas: (formData.get('idiomas') || '').trim(),
+        disponibilidad: formData.get('disponibilidad') || '',
+        fechaInicio: formData.get('fechaInicio') || '',
+        modalidad: selectedModalidad ? selectedModalidad.value : '',
+        franja: formData.get('franja') || '',
+        mensaje: (formData.get('mensaje') || '').trim(),
+        cvFileName: existingData.cvFileName || '',
+        cvBase64: existingData.cvBase64 || ''
+      };
+    }
+
+    function handleCandidateSubmit(event){
+      event.preventDefault();
+      if (!candidateForm) return;
+      if (!candidateForm.reportValidity()){
+        return;
+      }
+      const selectedAreas = candidateForm.querySelectorAll('input[name="areasInteres"]:checked');
+      if (!selectedAreas.length){
+        showApplicantStatus('Selecciona al menos un área de interés para continuar.', 'error');
+        const firstCheckbox = candidateForm.querySelector('input[name="areasInteres"]');
+        if (firstCheckbox) firstCheckbox.focus();
+        return;
+      }
+      const existingData = getStoredApplicant() || {};
+      const candidateData = collectCandidateFormData(existingData);
+      if (!candidateData.nombreCompleto || !candidateData.email || !candidateData.pais || !candidateData.experiencia || !candidateData.disponibilidad){
+        showApplicantStatus('Revisa que los campos obligatorios estén completos.', 'error');
+        return;
+      }
+      const cvInput = document.getElementById('postulanteCv');
+      const cvFile = cvInput && cvInput.files ? cvInput.files[0] : null;
+      showApplicantStatus('Guardando postulación...');
+      const finalizeSave = () => {
+        localStorage.setItem(applicantStorageKey, JSON.stringify(candidateData));
+        refreshCandidateUI(candidateData);
+        showApplicantStatus('Tu postulación se guardó correctamente.', 'success');
+      };
+      if (cvFile){
+        if (cvFile.size > 5 * 1024 * 1024){
+          showApplicantStatus('El archivo supera el máximo de 5 MB. Intenta con una versión más liviana.', 'error');
+          return;
+        }
+        readFileAsDataURL(cvFile).then(base64 => {
+          candidateData.cvBase64 = base64;
+          candidateData.cvFileName = cvFile.name;
+          finalizeSave();
+        }).catch(() => {
+          showApplicantStatus('Ocurrió un problema al leer el archivo. Inténtalo nuevamente.', 'error');
+        });
+      } else {
+        finalizeSave();
+      }
+    }
+
+    function clearCandidateData(showMessage = true){
+      localStorage.removeItem(applicantStorageKey);
+      if (candidateForm){
+        candidateForm.reset();
+      }
+      const cvInput = document.getElementById('postulanteCv');
+      if (cvInput){
+        cvInput.value = '';
+      }
+      refreshCandidateUI(null);
+      if (showMessage){
+        showApplicantStatus('Se eliminaron los datos guardados.', 'success');
+      } else {
+        showApplicantStatus('');
+      }
+    }
+
+    if (candidateForm){
+      const storedApplicant = getStoredApplicant();
+      if (storedApplicant){
+        fillCandidateForm(storedApplicant);
+      }
+      refreshCandidateUI(storedApplicant);
+      candidateForm.addEventListener('submit', handleCandidateSubmit);
+    } else {
+      const storedApplicant = getStoredApplicant();
+      if (storedApplicant){
+        refreshCandidateUI(storedApplicant);
+      }
+    }
+
+    if (clearApplicantRecord){
+      clearApplicantRecord.addEventListener('click', () => {
+        const confirmDelete = confirm('¿Quieres eliminar los datos guardados de tu postulación?');
+        if (confirmDelete){
+          clearCandidateData();
+        }
+      });
+    }
+
+    if (navUserClear){
+      navUserClear.addEventListener('click', () => {
+        const confirmDelete = confirm('¿Quieres eliminar los datos guardados de tu postulación?');
+        if (confirmDelete){
+          clearCandidateData();
+        }
       });
     }
 
