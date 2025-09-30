@@ -341,6 +341,184 @@
 
     .whatsapp-helper{font-size:12px;color:var(--ink-400)}
 
+    body.no-scroll{overflow:hidden}
+
+    .jobs-shortcut{
+      position:fixed;
+      right:24px;
+      bottom:104px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:var(--ink-800);
+      color:var(--white);
+      padding:14px 20px;
+      border-radius:999px;
+      box-shadow:var(--shadow-lg);
+      font-weight:600;
+      font-size:14px;
+      text-decoration:none;
+      z-index:125;
+      transition:var(--transition);
+    }
+
+    .jobs-shortcut svg{width:18px;height:18px;stroke:currentColor}
+
+    .jobs-shortcut:hover{
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-xl);
+    }
+
+    .application-highlight{
+      animation:applicationPulse 1.8s ease-out 1;
+    }
+
+    @keyframes applicationPulse{
+      0%{box-shadow:0 0 0 0 rgba(10,79,214,.35)}
+      70%{box-shadow:0 0 0 12px rgba(10,79,214,0)}
+      100%{box-shadow:0 0 0 0 rgba(10,79,214,0)}
+    }
+
+    .application-overlay{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(15,23,42,.6);
+      backdrop-filter:blur(6px);
+      opacity:0;
+      pointer-events:none;
+      transition:var(--transition);
+      z-index:200;
+      padding:24px;
+    }
+
+    .application-overlay.active{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .application-dialog{
+      background:var(--white);
+      border-radius:20px;
+      box-shadow:var(--shadow-xl);
+      width:min(960px, 100%);
+      max-height:calc(100vh - 48px);
+      overflow:auto;
+      padding:32px;
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    .application-dialog-header{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .application-dialog-title{
+      font-size:24px;
+      font-weight:700;
+      color:var(--ink-800);
+    }
+
+    .application-dialog-title span{
+      color:var(--brand);
+    }
+
+    .application-dialog-close{
+      position:absolute;
+      top:20px;
+      right:24px;
+      background:transparent;
+      border:0;
+      font-size:28px;
+      color:var(--ink-400);
+      cursor:pointer;
+      transition:var(--transition);
+    }
+
+    .application-dialog-close:hover{color:var(--ink-700)}
+
+    .application-dialog-body{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:24px;
+    }
+
+    .application-option{
+      border:1px solid var(--ink-200);
+      border-radius:16px;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .application-option h4{
+      font-size:18px;
+      font-weight:700;
+      color:var(--ink-800);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .application-option p{color:var(--ink-600);font-size:14px}
+
+    .application-option form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .application-option label{
+      font-size:13px;
+      font-weight:600;
+      color:var(--ink-600);
+    }
+
+    .application-option input,
+    .application-option select,
+    .application-option textarea{
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid var(--ink-200);
+      font-size:14px;
+      font-family:inherit;
+      transition:var(--transition);
+    }
+
+    .application-option textarea{min-height:110px;resize:vertical}
+
+    .application-option input:focus,
+    .application-option select:focus,
+    .application-option textarea:focus{
+      border-color:var(--brand);
+      outline:none;
+      box-shadow:0 0 0 3px rgba(10,79,214,.12);
+    }
+
+    .application-option .status-message{
+      min-height:20px;
+      font-size:13px;
+    }
+
+    .application-option .status-message.success{color:var(--success)}
+
+    .application-option .status-message.error{color:#dc2626}
+
+    @media(max-width:900px){
+      .application-dialog-body{grid-template-columns:1fr}
+    }
+
+    @media(max-width:600px){
+      .jobs-shortcut{right:16px;bottom:96px;font-size:13px;padding:12px 18px}
+      .application-dialog{padding:24px;max-height:calc(100vh - 32px)}
+    }
+
     @media(max-width:600px){
       .whatsapp-float-button{right:16px;bottom:16px;width:58px;height:58px}
       .whatsapp-sheet{right:16px;left:16px;bottom:16px;width:auto}
@@ -1439,6 +1617,11 @@
     </div>
   </nav>
 
+  <a class="jobs-shortcut" href="#vacantes" id="jobsShortcut" aria-label="Ver ofertas de trabajo">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18"/></svg>
+    Ver ofertas de trabajo
+  </a>
+
   <!-- HERO -->
   <section class="hero">
     <div class="container">
@@ -1598,7 +1781,7 @@
               <span>Horario flexible</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1611,7 +1794,7 @@
               <span>Chat en vivo</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1624,7 +1807,7 @@
               <span>Turnos rotativos</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1637,7 +1820,7 @@
               <span>Soporte a ejecutivos</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1650,7 +1833,7 @@
               <span>Atención telefónica</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
         </div>
@@ -1669,7 +1852,7 @@
               <span>Excel / Google Sheets</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1682,7 +1865,7 @@
               <span>Entrega diaria</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1695,7 +1878,7 @@
               <span>Reportes semanales</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1708,7 +1891,7 @@
               <span>Google Drive</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1721,7 +1904,7 @@
               <span>Word / Google Docs</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
         </div>
@@ -1740,7 +1923,7 @@
               <span>Buffer / Hootsuite</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1753,7 +1936,7 @@
               <span>Community management</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1766,7 +1949,7 @@
               <span>Canva</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1779,7 +1962,7 @@
               <span>Recursos creativos</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1792,7 +1975,7 @@
               <span>Calidad editorial</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
         </div>
@@ -1811,7 +1994,7 @@
               <span>Gestión de datos</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1824,7 +2007,7 @@
               <span>Research online</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1837,7 +2020,7 @@
               <span>Ecommerce</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1850,7 +2033,7 @@
               <span>Facturación</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
           <div class="job-card">
@@ -1863,7 +2046,7 @@
               <span>Comunicación proactiva</span>
             </div>
             <div class="job-actions">
-              <a class="btn btn-primary" href="#contacto">Aplicar a esta oferta</a>
+              <button type="button" class="btn btn-primary job-apply-btn">Aplicar a esta oferta</button>
             </div>
           </div>
         </div>
@@ -2255,6 +2438,81 @@
       </div>
     </div>
   </footer>
+
+  <div class="application-overlay" id="applicationOverlay" aria-hidden="true">
+    <div class="application-dialog" role="dialog" aria-modal="true" aria-labelledby="applicationDialogTitle">
+      <button type="button" class="application-dialog-close" id="applicationDialogClose" aria-label="Cerrar opciones">&times;</button>
+      <div class="application-dialog-header">
+        <div class="section-label" style="align-self:flex-start">Postula en Remoti</div>
+        <h3 class="application-dialog-title" id="applicationDialogTitle">Aplicar a <span id="applicationJobName">esta vacante</span></h3>
+        <p>Elige cómo deseas enviar tu postulación. Completa una de las opciones para que podamos responderte.</p>
+      </div>
+      <div class="application-dialog-body">
+        <div class="application-option">
+          <h4>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 12c2.21 0 4-1.343 4-3s-1.79-3-4-3-4 1.343-4 3 1.79 3 4 3zm0 0c-2.667 0-8 1.334-8 4v1c0 .552.448 1 1 1h14c.552 0 1-.448 1-1v-1c0-2.666-5.333-4-8-4z"/></svg>
+            Completar planilla de inscripción
+          </h4>
+          <p>Guardaremos los datos en la planilla principal para que solo tengas que añadir la información adicional.</p>
+          <form id="overlayPlanForm">
+            <div>
+              <label for="overlayNombre">Nombre completo *</label>
+              <input type="text" id="overlayNombre" name="nombre" placeholder="Ej. Laura Martínez" required>
+            </div>
+            <div>
+              <label for="overlayEmail">Correo electrónico *</label>
+              <input type="email" id="overlayEmail" name="email" placeholder="tuemail@ejemplo.com" required>
+            </div>
+            <div>
+              <label for="overlayTelefono">Teléfono / WhatsApp</label>
+              <input type="tel" id="overlayTelefono" name="telefono" placeholder="+34 600 000 000">
+            </div>
+            <div>
+              <label for="overlayPais">País de residencia *</label>
+              <input type="text" id="overlayPais" name="pais" placeholder="España" required>
+            </div>
+            <div>
+              <label for="overlayArea">Área de interés</label>
+              <select id="overlayArea" name="area">
+                <option value="">Selecciona una opción</option>
+                <option value="Asistencia ejecutiva">Asistencia ejecutiva</option>
+                <option value="Atención al cliente">Atención al cliente</option>
+                <option value="Ventas y prospección">Ventas y prospección</option>
+                <option value="Contenido y redes">Contenido y redes</option>
+                <option value="Operaciones y administración">Operaciones y administración</option>
+                <option value="Datos y reporting">Datos y reporting</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Prellenar planilla</button>
+            <div class="status-message" id="overlayPlanStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+        <div class="application-option">
+          <h4>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Enviar mensaje por WhatsApp
+          </h4>
+          <p>Prepara un mensaje personalizado antes de iniciar la conversación con nuestro equipo de reclutamiento.</p>
+          <form id="overlayWhatsappForm">
+            <div>
+              <label for="overlayWaNombre">Nombre completo *</label>
+              <input type="text" id="overlayWaNombre" name="nombre" placeholder="Ej. Laura Martínez" required>
+            </div>
+            <div>
+              <label for="overlayWaTelefono">Teléfono *</label>
+              <input type="tel" id="overlayWaTelefono" name="telefono" placeholder="+34 600 000 000" required>
+            </div>
+            <div>
+              <label for="overlayWaMensaje">Mensaje para WhatsApp</label>
+              <textarea id="overlayWaMensaje" name="mensaje" placeholder="Comparte tu disponibilidad y experiencia."></textarea>
+            </div>
+            <button type="submit" class="btn btn-secondary">Redactar en WhatsApp</button>
+            <div class="status-message" id="overlayWhatsappStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <button class="whatsapp-float-button" id="whatsappFloatButton" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true">
@@ -2702,6 +2960,193 @@ Solicito información detallada y disponibilidad para una consultoría inicial.`
       cvWrapper: document.getElementById('summaryCvWrapper'),
       cvLink: document.getElementById('summaryCvLink')
     };
+
+    const applicationOverlay = document.getElementById('applicationOverlay');
+    const applicationJobName = document.getElementById('applicationJobName');
+    const applicationDialogClose = document.getElementById('applicationDialogClose');
+    const overlayPlanForm = document.getElementById('overlayPlanForm');
+    const overlayPlanStatus = document.getElementById('overlayPlanStatus');
+    const overlayWhatsappForm = document.getElementById('overlayWhatsappForm');
+    const overlayWhatsappStatus = document.getElementById('overlayWhatsappStatus');
+    const overlayWaMensaje = document.getElementById('overlayWaMensaje');
+
+    function setOverlayStatus(target, message = '', type){
+      if (!target) return;
+      target.textContent = message;
+      target.classList.remove('success', 'error');
+      if (type){
+        target.classList.add(type);
+      }
+    }
+
+    function prefillOverlayFromStored(){
+      if (!overlayPlanForm) return;
+      const stored = getStoredApplicant();
+      if (!stored) return;
+      const map = {
+        nombre: stored.nombreCompleto,
+        email: stored.email,
+        telefono: stored.telefono,
+        pais: stored.pais
+      };
+      Object.entries(map).forEach(([name, value]) => {
+        const field = overlayPlanForm.querySelector(`[name="${name}"]`);
+        if (field && value){
+          field.value = value;
+        }
+      });
+      if (Array.isArray(stored.areasInteres) && stored.areasInteres.length){
+        const select = overlayPlanForm.querySelector('[name="area"]');
+        if (select && !select.value){
+          const preferred = stored.areasInteres[0];
+          const match = Array.from(select.options).find(option => option.value === preferred);
+          if (match){
+            select.value = match.value;
+          }
+        }
+      }
+    }
+
+    function openApplicationOverlay(jobTitle){
+      if (!applicationOverlay) return;
+      applicationOverlay.dataset.jobTitle = jobTitle || '';
+      if (applicationJobName){
+        applicationJobName.textContent = jobTitle || 'esta vacante';
+      }
+      if (overlayPlanForm){
+        overlayPlanForm.reset();
+      }
+      if (overlayWhatsappForm){
+        overlayWhatsappForm.reset();
+      }
+      if (overlayWaMensaje && jobTitle){
+        overlayWaMensaje.value = `Hola, me interesa la vacante "${jobTitle}".`;
+      }
+      prefillOverlayFromStored();
+      setOverlayStatus(overlayPlanStatus, '');
+      setOverlayStatus(overlayWhatsappStatus, '');
+      applicationOverlay.classList.add('active');
+      applicationOverlay.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeApplicationOverlay(){
+      if (!applicationOverlay) return;
+      applicationOverlay.classList.remove('active');
+      applicationOverlay.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+    }
+
+    if (applicationOverlay){
+      applicationOverlay.addEventListener('click', event => {
+        if (event.target === applicationOverlay){
+          closeApplicationOverlay();
+        }
+      });
+    }
+
+    if (applicationDialogClose){
+      applicationDialogClose.addEventListener('click', closeApplicationOverlay);
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && applicationOverlay && applicationOverlay.classList.contains('active')){
+        closeApplicationOverlay();
+      }
+    });
+
+    document.querySelectorAll('.job-apply-btn').forEach(button => {
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        const jobCard = button.closest('.job-card');
+        const jobTitle = jobCard ? jobCard.querySelector('.job-title')?.textContent.trim() : '';
+        openApplicationOverlay(jobTitle);
+      });
+    });
+
+    if (overlayPlanForm){
+      overlayPlanForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const formData = new FormData(overlayPlanForm);
+        const nombre = (formData.get('nombre') || '').toString().trim();
+        const email = (formData.get('email') || '').toString().trim();
+        const telefono = (formData.get('telefono') || '').toString().trim();
+        const pais = (formData.get('pais') || '').toString().trim();
+        const area = (formData.get('area') || '').toString();
+        if (!nombre || !email || !pais){
+          setOverlayStatus(overlayPlanStatus, 'Completa los campos obligatorios marcados con *.', 'error');
+          return;
+        }
+        if (candidateForm){
+          const setValue = (selector, value) => {
+            const field = candidateForm.querySelector(selector);
+            if (field && typeof value !== 'undefined' && value !== null){
+              field.value = value;
+              field.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+          };
+          setValue('#postulanteNombre', nombre);
+          setValue('#postulanteEmail', email);
+          setValue('#postulanteTelefono', telefono);
+          setValue('#postulantePais', pais);
+          if (area){
+            const checkboxes = candidateForm.querySelectorAll('input[name="areasInteres"]');
+            checkboxes.forEach(input => {
+              input.checked = input.value === area;
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+          }
+          const jobTitle = applicationOverlay ? applicationOverlay.dataset.jobTitle : '';
+          const messageField = candidateForm.querySelector('#postulanteMensaje');
+          if (messageField && jobTitle){
+            const jobLine = `Me gustaría aplicar a la vacante "${jobTitle}".`;
+            if (!messageField.value.includes(jobLine)){
+              const prefix = messageField.value ? `${messageField.value.trim()}\n\n` : '';
+              messageField.value = `${prefix}${jobLine}`.trim();
+            }
+          }
+        }
+        setOverlayStatus(overlayPlanStatus, 'Hemos prellenado la planilla principal. Completa el resto y guarda tu postulación.', 'success');
+        setTimeout(() => {
+          closeApplicationOverlay();
+          if (candidateForm){
+            const applicantSection = document.getElementById('postula');
+            if (applicantSection){
+              applicantSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            candidateForm.classList.add('application-highlight');
+            setTimeout(() => candidateForm.classList.remove('application-highlight'), 2000);
+          }
+        }, 1200);
+      });
+    }
+
+    if (overlayWhatsappForm){
+      overlayWhatsappForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const formData = new FormData(overlayWhatsappForm);
+        const nombre = (formData.get('nombre') || '').toString().trim();
+        const telefono = (formData.get('telefono') || '').toString().trim();
+        const mensaje = (formData.get('mensaje') || '').toString().trim();
+        if (!nombre || !telefono){
+          setOverlayStatus(overlayWhatsappStatus, 'Indica tu nombre y teléfono para continuar.', 'error');
+          return;
+        }
+        const jobTitle = applicationOverlay ? applicationOverlay.dataset.jobTitle : '';
+        const lines = [
+          `Hola Remoti, mi nombre es ${nombre}.`,
+          jobTitle ? `Me gustaría aplicar a la vacante "${jobTitle}".` : 'Me gustaría postular a una vacante disponible.',
+          `Mi número de contacto es ${telefono}.`,
+          mensaje
+        ].filter(Boolean);
+        const whatsappUrl = `https://wa.me/34655356520?text=${encodeURIComponent(lines.join('\n'))}`;
+        window.open(whatsappUrl, '_blank', 'noopener');
+        setOverlayStatus(overlayWhatsappStatus, 'Abrimos una nueva pestaña con tu mensaje listo en WhatsApp.', 'success');
+        setTimeout(() => {
+          closeApplicationOverlay();
+        }, 1200);
+      });
+    }
 
     function getStoredApplicant(){
       const stored = localStorage.getItem(applicantStorageKey);
